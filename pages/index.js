@@ -1,209 +1,141 @@
-import Head from 'next/head'
+import Head from 'next/head';
+
 
 export default function Home() {
   return (
-    <div className="container">
+    <div classNameName="app">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title> | Carpede</title>
+        <meta name="title" content="title" />
+        <meta name="author" content="author" />
+        <meta name="description" content="description" />
+        <meta name="keywords" content="keywords" />
+        <meta name="robots" content="all" />
+
+        <meta name="geo.region" content="BR-SP" />
+        <meta name="geo.position" content="geoLatitude;geoLongitude" />
+        <meta name="ICBM" content="geoLatitude, geoLongitude" />
+
+        
+        <meta name="language" content="pt-br" />
+        <meta name="copyright" content="nomeEmpresa." />
+        <meta name="distribution" content="global" />
+        <meta name="audience" content="all" />
+        <meta name="url" content="canonical" />
+        <meta name="classNameification" content="ramo" />
+        <meta name="category" content="ramo" />
+        <meta name="Page-Topic" content="title - nomeEmpresa" />
+        <meta name="rating" content="general" />
+        <meta name="fone" content="tel" />
+        <meta name="city" content="cidade" />
+        <meta name="country" content="Brasil" />
+        <meta property="publisher" content="creditos" />
+
+        <link rel="canonical" href="canonical" />
+        <meta name="googlebot" content="all" />
+        <meta name="geo.placename" content="Brasil" />
+        <meta name="geo.region" content="cidade" />
+        <meta name="name" content="nomeEmpresa" />
+        <meta name="image" content="url.$card" />
+
+        <meta name="twitter:card" content="url.$card" />
+        <meta name="twitter:url" content="canonical" />
+        <meta name="twitter:site" content="canonical" />
+        <meta name="twitter:title" content="title - nomeEmpresa" />
+        <meta name="twitter:description" content="description" />
+        <meta name="twitter:image" content="url.$card" />
+
+        <meta property="og:title" content="title - nomeEmpresa" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="canonical" />
+        <meta property="og:site_name" content="nomeEmpresa" />
+        <meta property="og:author" content="nomeEmpresa" />
+        <meta property="og:locale" content="pt_BR" />
+        <meta property="og:region" content="Brasil" />
+        <meta property="og:image" content="card" />
+        <meta property="og:image:type" content="image/jpg" />
+        <meta property="og:image:width" content="250" />
+        <meta property="og:image:height" content="250" />
+        <meta property="og:description" content="description" />
+        
+        <link rel="icon" href="source/images/favicon.png" type="image/x-icon" />
+        <link rel="shortcut icon" type="image/x-icon" href="source/images/favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="public/css/style.css" />
       </Head>
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <div className="fluid-container home">
+        <header>
+            <button className="toggleNav">&#9776;</button>
+            <div className="container">
+                <a href=""><img src="" alt="Carpede" title="Carpede" /></a>
+                <nav>
+                    <a href="">Home</a>
+                    <a href="">Suporte</a>
+                    <a href="">Assinatura</a>
+                    <a href="">Contato</a>
+                </nav>
+            </div>
+        </header>
+        
+        <section className="container exclusive">
+            <div>
+                <h1>Tenha um aplicativo Exclusivo para o Seu Negócio!</h1>
+                <div className="subscribe">
+                    <input type="text" placeholder="DIGITE AQUI SEU MELHOR EMAIL" />
+                    <button>Quero saber mais</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section className="container benefits">
+        <div className="mobileImage">
+          <img src="/images/device.png" />
         </div>
-      </main>
+        <article className="benefitsArticle">
+            <h2>QUAIS VANTAGENS TEREI AO CONTRATAR ?</h2>
+            <p className="item">Sem tempo mínimo de adesão</p>
+            <p className="item">Sem burocracia ou multa por cancelamento</p>
+            <p className="item">Nenhuma taxa por venda feita</p>
+            <p className="item">Suporte personalizado</p>
+        </article>
+    </section>
+    <section className="container why">
+        <div className="reasons">
+            <h2>Por que ter um aplicativo delivery?</h2>
+            <div className="reason">
+                <h4>Exclusividade</h4>
+                <p>Ter um aplicativo próprio possui diversas vantagens, as quais uma delas é não ter concorrência como em outros aplicativos públicos de delivery, onde sua empresa deve concorrer com vários opções de lojas.</p>
+            </div>
+            <div className="reason">
+                <h4>Atendimento</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at lacus a nisl placerat dapibus. Praesent consectetur sapien vitae faucibus fringilla. Ut non tellus sed velit venenatis iaculis. Etiam venenatis elementum lobortis.</p>
+            </div>
+            <div className="reason">
+                <h4>ECONOMIA</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at lacus a nisl placerat dapibus. Praesent consectetur sapien vitae faucibus fringilla. Ut non tellus sed velit venenatis iaculis. Etiam venenatis elementum lobortis.</p>
+            </div>
+            <div className="reason">
+                <h4>Organização</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at lacus a nisl placerat dapibus. Praesent consectetur sapien vitae faucibus fringilla. Ut non tellus sed velit venenatis iaculis. Etiam venenatis elementum lobortis.</p>
+            </div>
+            <div className="know">
+                <button>CONHEÇA</button>
+            </div>
+        </div>
+    </section>
+    <div className="fluid-container about">
+        <a href=""><h3>MELHOR ATENDIMENTO AO CLIENTE</h3></a>
+        <a href=""><h3>Segundo Teste</h3></a>
+        <a href=""><h3>Terceiro Teste</h3></a>
+    </div>
+    <footer>
+        <div>Texte de Estrutura</div>
+    </footer>
 
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
     </div>
   )
 }

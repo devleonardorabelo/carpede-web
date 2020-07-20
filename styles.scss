@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+*,:after,:before{margin:0;padding:0;outline:0;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-box-sizing:border-box;text-decoration:none;list-style:none}
+
+body,input,button {font-family: 'Montserrat', sans-serif; color: #333333}
+h1,h2,h3,h4 {text-transform: uppercase;	}
+
+h2 {
+	font-size: 30pt;
+	margin-bottom: 32px;
+}
+h3 {
+	font-size: 20pt;
+	margin-bottom: 22px;
+}
+h4 {
+	font-size: 16pt;
+	margin-bottom: 18px;
+}
+
+.fluid-container {display: block; width: 100%;padding: 0px;}
+.container {max-width: 1140px;display: block;margin: auto;padding: 15px;width: 100%;}
+
+.home {display:grid;min-height: 100vh;width: 100%;grid-template-areas: "head" "conteudo";grid-template-rows: auto 1fr;}
+
+header {position: fixed;width: 100%;background-color: #FFFFFF;}
+header .toggleNav {position: absolute;right: 20px;top:15px;padding: 10px 15px;font-size: 12pt;display: none;}
+header .container {margin:auto;display: grid;grid-template-columns: auto 1fr; padding:30px 15px;grid-area:head;}
+header .container nav {text-align: right;}
+header .container nav a {
+	text-transform: uppercase;
+	padding: 5px 0 5px 20px;
+	font-weight: 400;
+	color: #333333;
+	font-size: 14pt;
+}
+
+section.exclusive {grid-area: conteudo;align-self: end;}
+section.exclusive h1 {
+	font-size: 50pt;
+	margin-bottom: 30px;
+	line-height: 55pt;
+	letter-spacing: -0.02em;
+}
+section.exclusive .subscribe {display: grid;grid-template-columns: 1fr auto;}
+section.exclusive .subscribe input {
+	height: 64px;
+	background: #E2E2E2;
+	border:0px;
+	border-radius: 8px 0px 0px 8px;
+	padding: 20px;
+	font-size: 14pt;
+	display: block;
+	width: 100%;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+section.exclusive .subscribe input::placeholder {
+	color: #B6B6B6;
+}
+section.exclusive .subscribe button {
+	padding: 0 20px;
+	height: 64px;
+	text-transform: uppercase;
+	font-weight: bold;
+	border:0px;
+	background: linear-gradient(252.26deg, #4F8FDF 0%, #45D9A6 100%);
+	border-radius: 0px 8px 8px 0px;
+	color: #FFFFFF;
+}
+
+section.benefits {min-height: 100vh;display: grid;grid-template-areas: "image content";grid-template-columns: 400px 1fr;grid-gap: 40px;}
+section.benefits div.mobileImage {
+	grid-area:image;
+	align-self: center;
+	border-radius: 5px;
+}
+section.benefits div.mobileImage img {
+	max-width: 100%;
+}
+section.benefits article.benefitsArticle {grid-area:content;align-self: center;}
+
+section.benefits article.benefitsArticle p.item {
+	background: url('/images/li-item.png') no-repeat left center;
+	padding: 8px 28px;
+	font-size: 14pt;
+}
+
+section.why {min-height: 100vh;display: flex;align-items: center;}
+section.why div.reasons {display:grid;grid-template-areas: "titulo titulo titulo titulo" "why1 why2 why3 why4" "know know know know";grid-template-columns: repeat(4,1fr);grid-gap:20px}
+section.why div.reasons h2 {
+	grid-area: titulo;
+	display: block;
+}
+section.why div.reasons div.reason h3 {margin-bottom: 10px;}
+section.why div.reasons div.know {grid-area: know;text-align: center;}
+
+div.about {display: grid;grid-template-areas: "image1 image1" "image2 image3";min-height: 100vh;}
+div.about a {text-align: center;display: grid;}
+div.about a h3 {
+	align-self: center;
+	color:#FFFFFF;
+	text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+div.about a:nth-child(1) {
+	grid-area:image1;
+	background: url('/images/background1.png') no-repeat;
+	background-size: auto 100%;
+	background-color: #333333;
+}
+div.about a:nth-child(2) {grid-area:image2;background: rgb(77,213,167);background: -moz-linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);background: -webkit-linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);background: linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4dd5a7",endColorstr="#5294ea",GradientType=1);}
+div.about a:nth-child(3) {grid-area:image3;background: rgb(76,139,219);background: -moz-linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);background: -webkit-linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);background: linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4c8bdb",endColorstr="#000000",GradientType=1);}
+
+footer {min-height: 200px;background: #222;}
+
+@media (max-width: 800px) {
+    section.benefits {grid-template-areas: "image image" "content content";max-width: 100%;grid-template-columns: 1fr;}
+    section.why div.reasons {
+    	grid-template-columns:1fr;
+    	grid-template-areas: "titulo" "why1" "why2" "why3" "why4" "know";
+    	grid-gap: 40px
+    }
+    div.about {grid-template-columns: 1fr;grid-template-areas: "image1" "image2" "image3";}
+    header .toggleNav {display: block;}
+    header .container nav {position: absolute;left:0px;width: 100vw;top:79px;background: white;text-align: left;display: none;min-height: 0px;overflow: hidden;}
+    header .container nav.active {display: block;animation: slide 0.7s forwards;}
+    header .container nav a {display: block; color: #333333}
+    header .container nav a:visited {color: red}
+}
+
+@media (max-width: 500px) {
+    section.exclusive h1 {font-size: 35pt;}
+}
+
+@keyframes slide {
+    0% {max-height: 0%;}
+    100% {max-height: 100vh;}
+}
