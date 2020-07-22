@@ -1,8 +1,24 @@
+import { useState, useEffect } from 'react'
 import Head from 'next/head';
 
-
 export default function Home() {
-  return (
+    const [isActived, setIsActived] = useState(false);
+
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScrollPosition(position);
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, []);
+
+    return (
     <div classNameName="app">
       <Head>
         <meta charset="utf-8" />
@@ -68,15 +84,15 @@ export default function Home() {
       </Head>
 
       <div className="fluid-container home">
-        <header>
-            <button className="toggleNav">&#9776;</button>
+        <header className={scrollPosition > 0 && "scrolled"}>
+            <button className="toggleNav" onClick={() => setIsActived(!isActived)}>&#9776;</button>
             <div className="container">
-                <a href=""><img src="" alt="Carpede" title="Carpede" /></a>
-                <nav>
+                <a className="logo" href=""><img src="/images/logo-carpede.png" alt="Carpede" title="Carpede" /></a>
+                <nav className={isActived && "active"}>
                     <a href="">Home</a>
                     <a href="">Suporte</a>
                     <a href="">Assinatura</a>
-                    <a href="">Contato</a>
+                    <a href="">Contato</a>    
                 </nav>
             </div>
         </header>
@@ -97,10 +113,11 @@ export default function Home() {
         </div>
         <article className="benefitsArticle">
             <h2>QUAIS VANTAGENS TEREI AO CONTRATAR ?</h2>
+            <p className="item">Nenhuma taxa por venda feita</p>
             <p className="item">Sem tempo mínimo de adesão</p>
             <p className="item">Sem burocracia ou multa por cancelamento</p>
-            <p className="item">Nenhuma taxa por venda feita</p>
             <p className="item">Suporte personalizado</p>
+            <img className="pricing" src="/images/pricing.svg" />
         </article>
     </section>
     <section className="container why">
@@ -112,28 +129,30 @@ export default function Home() {
             </div>
             <div className="reason">
                 <h4>Atendimento</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at lacus a nisl placerat dapibus. Praesent consectetur sapien vitae faucibus fringilla. Ut non tellus sed velit venenatis iaculis. Etiam venenatis elementum lobortis.</p>
+                <p>Mais agilidade no seu atendimento, pois serão listados todos os seus produtos e promoções que ficarão disponíveis para o seu cliente enquanto você só ficará responsável por acompanhar os seus pedidos pendentes.</p>
             </div>
             <div className="reason">
                 <h4>ECONOMIA</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at lacus a nisl placerat dapibus. Praesent consectetur sapien vitae faucibus fringilla. Ut non tellus sed velit venenatis iaculis. Etiam venenatis elementum lobortis.</p>
+                <p>Sem taxas abusivas, que tomam praticamente a maior parte do lucro das suas vendas. Acreditamos no potencial de crescimento de cada parceiro, tentando proporcionar a melhor experiência tanto para você quantos para seus clientes.</p>
             </div>
             <div className="reason">
                 <h4>Organização</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at lacus a nisl placerat dapibus. Praesent consectetur sapien vitae faucibus fringilla. Ut non tellus sed velit venenatis iaculis. Etiam venenatis elementum lobortis.</p>
+                <p>Tenha controle de todos os pedidos feitos por seus cliente, a Carpede possui uma interface organizada com informações diversas sobre cada pedido, podendo entrar em contato diretamente com seu cliente e saber onde ele está.</p>
             </div>
             <div className="know">
-                <button>CONHEÇA</button>
+                <button>eu quero saber mais</button>
             </div>
         </div>
     </section>
     <div className="fluid-container about">
         <a href=""><h3>MELHOR ATENDIMENTO AO CLIENTE</h3></a>
-        <a href=""><h3>Segundo Teste</h3></a>
-        <a href=""><h3>Terceiro Teste</h3></a>
+        <a href=""><h3>SEM COMPLICAÇÃO</h3></a>
+        <a href=""><h3>SEM concorrência</h3></a>
     </div>
     <footer>
-        <div>Texte de Estrutura</div>
+        <div className="container">
+
+        </div>
     </footer>
 
     </div>
