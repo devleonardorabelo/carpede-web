@@ -13,7 +13,7 @@
 <br />
 
 <p align="center" >
-  <img src="https://raw.githubusercontent.com/devleonardorabelo/carpede-web/master/public/images/device.png" width="40%" />  
+  <img src="https://raw.githubusercontent.com/devleonardorabelo/carpede-web/master/public/images/device-mobile.png" width="40%" />  
 </p>
 
 <p align="center">
