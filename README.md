@@ -7,9 +7,17 @@
 
 A Carpede é uma startup que acredita em pequenos e médios empreendedores e proporciona aos seus parceiros a possibilidade de ter seu próprio aplicativo delivery, sem as velhas taxas de comissões abusivas por venda. Por um preço justo, nosso parceiro pode gerenciar seus pedidos e produtos diretamente do aplicativo principal. Para mais detalhes, acesse nosso site carpede.com.
 
+## Aplicativo
+
 <br />
 <br />
 
 <p align="center" >
-  <img src=https://raw.githubusercontent.com/devleonardorabelo/carpede-web/master/public/images/device.png width="40%" />  
+  <img src="https://raw.githubusercontent.com/devleonardorabelo/carpede-web/master/public/images/device.png" width="40%" />  
 </p>
+
+O aplicativo distribuido para nossos parceiros encontra-se na play store para que possam conhecê-lo. Clique no Botão abaixo e façam o download do aplicativo de teste.
+
+<a width="200px" href="http://play.google.com/store/carpede?pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
+  <img alt="Disponível no Google Play" src="https://play.google.com/intl/pt-BR/badges/static/images/badges/pt-br_badge_web_generic.png" />
+</a>
