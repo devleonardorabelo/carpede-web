@@ -25,7 +25,6 @@ export default function Header() {
               <a className="logo" href=""><img src="/images/logo-carpede.png" alt="Carpede" title="Carpede" /></a>
               <nav className={isActived && "active"}>
                 <Link href="/"><a>INÍCIO</a></Link>
-                <Link href="/support"><a>SUPORTE</a></Link>
                 <Link href="/terms"><a>TERMOS</a></Link> 
               </nav>
           </div>

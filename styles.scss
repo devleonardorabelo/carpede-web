@@ -96,7 +96,7 @@ section.exclusive .subscribe input {
 section.exclusive .subscribe input::placeholder {
 	color: #B6B6B6;
 }
-section.exclusive .subscribe button { border-radius: 0px 8px 8px 0px;}
+section.exclusive .subscribe button { border-radius: 0px 8px 8px 0px; min-width: 250px; cursor: pointer;}
 section.benefits {min-height: 100vh;display: grid;grid-template-areas: "image content";grid-template-columns: 400px 1fr;grid-gap: 40px;}
 section.benefits div.mobileImage {
 	grid-area:image;
@@ -150,6 +150,7 @@ footer p {color: #333333;}
 		section.exclusive .subscribe {display: grid;grid-template-columns: none}
 		section.exclusive .subscribe input {border-radius: 8px; margin-bottom: 12px;}
 		section.exclusive .subscribe button {border-radius: 8px;}
+
     section.benefits {grid-template-areas: "image image" "content content";max-width: 100%;grid-template-columns: 1fr;}
     section.why div.reasons {
     	grid-template-columns:1fr;

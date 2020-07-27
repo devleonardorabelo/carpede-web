@@ -1,8 +1,21 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
+import axios from 'axios';
 import Header from '../components/header';
 
 export default function Home() {
-    
+    const [sent, setSent] = useState(false);
+    const [email, setEmail] = useState('');
+
+    const handleSubscribe = async () => {
+        if(email.length > 11) {
+            const { data } = await axios.post('https://main.carpede.com/subscribe', { email })
+            if(data)
+                setSent(true)
+        }
+            
+    }
+
     return (
     <div classNameName="app">
       <Head>
@@ -72,8 +85,15 @@ export default function Home() {
             <div>
                 <h1>Tenha um aplicativo Exclusivo para o Seu Negócio!</h1>
                 <div className="subscribe">
-                    <input type="text" placeholder="DIGITE AQUI SEU MELHOR EMAIL" />
-                    <button>Quero saber mais</button>
+                    <input 
+                        type="text"
+                        placeholder="DIGITE AQUI SEU MELHOR EMAIL"
+                        onChange={e => setEmail(e.target.value)}
+                    />
+                    <button
+                        onClick={handleSubscribe}>
+                            {sent ?  "Entraremos em contato":"Quero saber mais" }
+                    </button>
                 </div>
             </div>
         </section>
