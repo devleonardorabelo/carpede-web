@@ -1,23 +1,8 @@
-import { useState, useEffect } from 'react'
 import Head from 'next/head';
+import Header from '../components/header';
 
 export default function Home() {
-    const [isActived, setIsActived] = useState(false);
-
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const handleScroll = () => {
-        const position = window.pageYOffset;
-        setScrollPosition(position);
-    }
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        }
-    }, []);
-
+    
     return (
     <div classNameName="app">
       <Head>
@@ -35,7 +20,6 @@ export default function Home() {
         <meta name="geo.position" content="geoLatitude;geoLongitude" />
         <meta name="ICBM" content="geoLatitude, geoLongitude" />
 
-        
         <meta name="language" content="pt-br" />
         <meta name="copyright" content="nomeEmpresa." />
         <meta name="distribution" content="global" />
@@ -82,21 +66,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="public/css/style.css" />
       </Head>
-
-      <div className="fluid-container home">
-        <header className={scrollPosition > 0 && "scrolled"}>
-            <button className="toggleNav" onClick={() => setIsActived(!isActived)}>&#9776;</button>
-            <div className="container">
-                <a className="logo" href=""><img src="/images/logo-carpede.png" alt="Carpede" title="Carpede" /></a>
-                <nav className={isActived && "active"}>
-                    <a href="">Home</a>
-                    <a href="">Suporte</a>
-                    <a href="">Assinatura</a>
-                    <a href="">Contato</a>    
-                </nav>
-            </div>
-        </header>
-        
+      <div className="fluid-container start">
+        <Header />
         <section className="container exclusive">
             <div>
                 <h1>Tenha um aplicativo Exclusivo para o Seu Negócio!</h1>
@@ -109,7 +80,7 @@ export default function Home() {
     </div>
     <section className="container benefits">
         <div className="mobileImage">
-          <img src="/images/device.png" />
+          <img src="/images/device-mobile.png" />
         </div>
         <article className="benefitsArticle">
             <h2>QUAIS VANTAGENS TEREI AO CONTRATAR ?</h2>
@@ -145,14 +116,12 @@ export default function Home() {
         </div>
     </section>
     <div className="fluid-container about">
-        <a href=""><h3>MELHOR ATENDIMENTO AO CLIENTE</h3></a>
-        <a href=""><h3>SEM COMPLICAÇÃO</h3></a>
-        <a href=""><h3>SEM concorrência</h3></a>
+        <a><h3>MELHOR ATENDIMENTO AO CLIENTE</h3></a>
+        <a><h3>SEM COMPLICAÇÃO</h3></a>
+        <a><h3>SEM concorrência</h3></a>
     </div>
     <footer>
-        <div className="container">
-
-        </div>
+        <p>Copyright @ 2020 - Todos os Direitos Reservados - Carpede</p>
     </footer>
 
     </div>
