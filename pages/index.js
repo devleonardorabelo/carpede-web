@@ -111,30 +111,18 @@ export default function Home() {
             <img className="pricing" src="/images/pricing.svg" />
         </article>
     </section>
-    <section className="container why">
-        <div className="reasons">
-            <h2>Por que ter um aplicativo delivery?</h2>
-            <div className="reason">
-                <h4>Exclusividade</h4>
-                <p>Ter um aplicativo próprio possui diversas vantagens, as quais uma delas é não ter concorrência como em outros aplicativos públicos de delivery, onde sua empresa deve concorrer com vários opções de lojas.</p>
-            </div>
-            <div className="reason">
-                <h4>Atendimento</h4>
-                <p>Mais agilidade no seu atendimento, pois serão listados todos os seus produtos e promoções que ficarão disponíveis para o seu cliente enquanto você só ficará responsável por acompanhar os seus pedidos pendentes.</p>
-            </div>
-            <div className="reason">
-                <h4>ECONOMIA</h4>
-                <p>Sem taxas abusivas, que tomam praticamente a maior parte do lucro das suas vendas. Acreditamos no potencial de crescimento de cada parceiro, tentando proporcionar a melhor experiência tanto para você quantos para seus clientes.</p>
-            </div>
-            <div className="reason">
-                <h4>Organização</h4>
-                <p>Tenha controle de todos os pedidos feitos por seus cliente, a Carpede possui uma interface organizada com informações diversas sobre cada pedido, podendo entrar em contato diretamente com seu cliente e saber onde ele está.</p>
-            </div>
-            <div className="know">
-                <button>eu quero saber mais</button>
-            </div>
+
+    <section className="reasons">
+        <div className="reason1">
+            <h4>O SEU CLIENTE BEM ATENDIDO</h4>
+            <p>Torne o seu Negócio em um grange negócio, com um aplicativo próprio, moderno e batante intuitivo.</p>
+        </div>
+        <div className="reason2">
+            <h4>SUA LOJA ORGANIZADA</h4>
+            <p>Tenha controle sobre seus produtos, e promoções e torne o processo de pedido muito mais simples.</p>
         </div>
     </section>
+
     <div className="fluid-container about">
         <a><h3>MELHOR ATENDIMENTO AO CLIENTE</h3></a>
         <a><h3>SEM COMPLICAÇÃO</h3></a>

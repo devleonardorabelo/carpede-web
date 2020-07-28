@@ -47,7 +47,13 @@ button {
 }
 
 .fluid-container {display: block; width: 100%;padding: 0px;}
-.container {max-width: 1140px;display: block;margin: auto;padding: 15px;width: 100%;}
+.container {
+	max-width: 1140px;
+	display: block;
+	margin: auto;
+	padding: 15px;
+	width: 100%;
+}
 .start {
 	display:grid;
 	min-height: 100vh;
@@ -56,10 +62,22 @@ button {
 	grid-template-rows: auto 1fr;
 }
 
-header {position: fixed;width: 100%;background-color: #FFFFFF;}
+header {
+	position: fixed;
+	width: 100%;
+	background-color: #FFFFFF;
+}
 header.scrolled {box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.05); opacity: 0.9;transition: 1s;}
 header .toggleNav {position: absolute;right: 20px;top:15px;padding: 10px 15px;font-size: 14pt;display: none;}
-header .container {margin:auto;display: grid;grid-template-columns: auto 1fr; padding:15px 15px;grid-area:head;align-items: center; }
+header .container {
+	margin:auto;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	padding:15px 15px;
+	grid-area:head;
+	align-items: center;
+	height: 76px;
+}
 header .container a.logo img{max-width: 120px;}
 header .container nav {text-align: right;}
 header .container nav a {
@@ -116,23 +134,25 @@ section.benefits article.benefitsArticle p.item {
 section.benefits article.benefitsArticle img.pricing {
 	margin: 32px 0;
 }
-
-section.why {min-height: 100vh;display: flex;align-items: center;}
-section.why div.reasons {display:grid;grid-template-areas: "titulo titulo titulo titulo" "why1 why2 why3 why4" "know know know know";grid-template-columns: repeat(4,1fr);grid-gap:20px}
-section.why div.reasons h2 {
-	grid-area: titulo;
-	display: block;
+section.reasons {
+	display:grid;
+	grid-template-areas: "reason1 reason2";
+	grid-gap:20px;
+	grid-template-rows: 1fr 1fr;
 }
-section.why div.reasons div.reason h3 {margin-bottom: 10px;}
-section.why div.reasons div.know {grid-area: know;text-align: center;}
-section.why div.reasons div.know button {margin: 32px 0;}
+section.reasons div.reason1 {
+	grid-area: "reason1";
+}
+section.reasons div.reason2 {
+	grid-area: "reason2";
+}
 
 div.about {display: grid;grid-template-areas: "image1 image1" "image2 image3";min-height: 100vh;}
 div.about a {text-align: center;display: grid;}
 div.about a h3 {
 	align-self: center;
 	color:#FFFFFF;
-	text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 div.about a:nth-child(1) {
 	grid-area:image1;
@@ -163,7 +183,7 @@ footer p {color: #333333;}
 			position: absolute;
 			left:0px;
 			width: 100vw;
-			top:79px;
+			top:76px;
 			background: white;
 			text-align: left;
 			display: none;
