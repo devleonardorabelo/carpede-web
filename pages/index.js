@@ -98,6 +98,22 @@ export default function Home() {
             </div>
         </section>
     </div>
+
+    <section className="reasons">
+        <div className="reason1">
+            <div>
+                <h4>O SEU CLIENTE BEM ATENDIDO</h4>
+                <p>Torne o seu Negócio em um grange negócio, com um aplicativo próprio, moderno e batante intuitivo.</p>
+            </div>
+        </div>
+        <div className="reason2">
+            <div>
+                <h4>SUA LOJA ORGANIZADA</h4>
+                <p>Tenha controle sobre seus produtos, e promoções e torne o processo de pedido muito mais simples.</p>
+            </div>
+        </div>
+    </section>
+
     <section className="container benefits">
         <div className="mobileImage">
           <img src="/images/device-mobile.png" />
@@ -110,17 +126,6 @@ export default function Home() {
             <p className="item">Suporte personalizado</p>
             <img className="pricing" src="/images/pricing.svg" />
         </article>
-    </section>
-
-    <section className="reasons">
-        <div className="reason1">
-            <h4>O SEU CLIENTE BEM ATENDIDO</h4>
-            <p>Torne o seu Negócio em um grange negócio, com um aplicativo próprio, moderno e batante intuitivo.</p>
-        </div>
-        <div className="reason2">
-            <h4>SUA LOJA ORGANIZADA</h4>
-            <p>Tenha controle sobre seus produtos, e promoções e torne o processo de pedido muito mais simples.</p>
-        </div>
     </section>
 
     <div className="fluid-container about">

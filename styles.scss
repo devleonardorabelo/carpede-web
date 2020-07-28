@@ -136,15 +136,24 @@ section.benefits article.benefitsArticle img.pricing {
 }
 section.reasons {
 	display:grid;
-	grid-template-areas: "reason1 reason2";
+	grid-template-areas: "reason1" "reason2";
 	grid-gap:20px;
-	grid-template-rows: 1fr 1fr;
+	grid-template-rows: 1fr;
+	min-height: 50vh;
 }
 section.reasons div.reason1 {
-	grid-area: "reason1";
+	grid-area: reason1;
 }
 section.reasons div.reason2 {
-	grid-area: "reason2";
+	grid-area: reason2;
+	display: flex;
+	justify-content: flex-end;
+}
+section.reasons>div {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 0px 40px;
+	align-items: center;
 }
 
 div.about {display: grid;grid-template-areas: "image1 image1" "image2 image3";min-height: 100vh;}
