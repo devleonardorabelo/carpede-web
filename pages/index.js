@@ -101,13 +101,13 @@ export default function Home() {
 
     <section className="reasons">
         <div className="reason1">
-            <div>
+            <div className="why">
                 <h4>O SEU CLIENTE BEM ATENDIDO</h4>
                 <p>Torne o seu Negócio em um grange negócio, com um aplicativo próprio, moderno e batante intuitivo.</p>
             </div>
         </div>
         <div className="reason2">
-            <div>
+            <div className="why why2">
                 <h4>SUA LOJA ORGANIZADA</h4>
                 <p>Tenha controle sobre seus produtos, e promoções e torne o processo de pedido muito mais simples.</p>
             </div>
@@ -130,7 +130,7 @@ export default function Home() {
 
     <div className="fluid-container about">
         <a><h3>MELHOR ATENDIMENTO AO CLIENTE</h3></a>
-        <a><h3>SEM COMPLICAÇÃO</h3></a>
+        <a><h3>NENHUMA TAXA</h3></a>
         <a><h3>SEM concorrência</h3></a>
     </div>
     <footer>

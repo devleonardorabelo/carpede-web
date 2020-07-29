@@ -130,6 +130,7 @@ section.benefits article.benefitsArticle p.item {
 	background: url('/images/li-item.png') no-repeat left center;
 	padding: 0 28px;
 	font-size: 14pt;
+	font-weight: 600;
 }
 section.benefits article.benefitsArticle img.pricing {
 	margin: 32px 0;
@@ -137,23 +138,48 @@ section.benefits article.benefitsArticle img.pricing {
 section.reasons {
 	display:grid;
 	grid-template-areas: "reason1" "reason2";
-	grid-gap:20px;
 	grid-template-rows: 1fr;
-	min-height: 50vh;
+	min-height: 100vh;
 }
 section.reasons div.reason1 {
 	grid-area: reason1;
+	display: flex;
+	background: url('/images/pizza-background.png') no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 section.reasons div.reason2 {
 	grid-area: reason2;
 	display: flex;
-	justify-content: flex-end;
+	background: url('/images/burger-background.png') no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 section.reasons>div {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	padding: 0px 40px;
 	align-items: center;
+	min-height: 50vh;
+	color: #FFFFFF;
+}
+section.reasons>div div.why2{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	text-align: right;
+}
+section.reasons div div.why {
+	flex: 1;
+	max-width: 1140px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+section.reasons div div.why p {
+	max-width: 35vw;
+	letter-spacing: -0.02em;
+	color: #FFFFFF;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 div.about {display: grid;grid-template-areas: "image1 image1" "image2 image3";min-height: 100vh;}
@@ -166,11 +192,11 @@ div.about a h3 {
 div.about a:nth-child(1) {
 	grid-area:image1;
 	background: url('/images/background1.png') no-repeat;
-	background-size: 100% auto;
+	background-size: cover;
 	background-color: #333333;
 }
-div.about a:nth-child(2) {grid-area:image2;background: rgb(77,213,167);background: -moz-linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);background: -webkit-linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);background: linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4dd5a7",endColorstr="#5294ea",GradientType=1);}
-div.about a:nth-child(3) {grid-area:image3;background: rgb(76,139,219);background: -moz-linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);background: -webkit-linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);background: linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4c8bdb",endColorstr="#000000",GradientType=1);}
+div.about a:nth-child(2) {min-width: 50vw;grid-area:image2;background: rgb(77,213,167);background: -moz-linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);background: -webkit-linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);background: linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4dd5a7",endColorstr="#5294ea",GradientType=1);}
+div.about a:nth-child(3) {min-width: 50vw;grid-area:image3;background: rgb(76,139,219);background: -moz-linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);background: -webkit-linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);background: linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4c8bdb",endColorstr="#000000",GradientType=1);}
 
 footer {text-align: center; padding-top: 16px;}
 footer p {color: #333333;}
@@ -180,12 +206,14 @@ footer p {color: #333333;}
 		section.exclusive .subscribe input {border-radius: 8px; margin-bottom: 12px;}
 		section.exclusive .subscribe button {border-radius: 8px;}
 
-    section.benefits {grid-template-areas: "image image" "content content";max-width: 100%;grid-template-columns: 1fr;}
-    section.why div.reasons {
-    	grid-template-columns:1fr;
-    	grid-template-areas: "titulo" "why1" "why2" "why3" "why4" "know";
-    	grid-gap: 40px
-    }
+    section.benefits {
+			grid-template-areas: "image image" "content content";
+			max-width: 100%;
+			grid-template-columns: 1fr;
+		}
+		section.reasons div div.why p {
+			max-width: 60vw;
+		}
     div.about {grid-template-columns: 1fr;grid-template-areas: "image1" "image2" "image3";}
     header .toggleNav {display: block; width: 48px; height: 48px;}
     header .container nav {
@@ -224,6 +252,15 @@ footer p {color: #333333;}
 		}
 		div.about a:nth-child(1) {
 			background-size: auto 100%;
+		}
+		section.reasons div.reason2 {
+			background-position: -200px center;
+		}
+		section.reasons div div.why p {
+			max-width: 100vw;
+		}
+		section.benefits {
+			padding: 64px 15px;
 		}
 
 }
