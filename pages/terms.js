@@ -1,4 +1,5 @@
 import Header from '../components/header'
+import Footer from '../components/footer';
 
 export default function Terms() {
   return (
@@ -126,6 +127,7 @@ export default function Terms() {
         
       </section>
       </div>
+      <Footer />
     </div>
   )
 }

@@ -23,6 +23,13 @@ h4 {
 	line-height: 21pt;
 	letter-spacing: -0.02em;
 }
+h5 {
+	font-size: 12pt;
+	margin-bottom: 4px;
+	line-height: 21pt;
+	letter-spacing: -0.02em;
+	font-weight: 600;
+}
 p {
 	font-size: 14pt;
 	margin-bottom: 16px;
@@ -122,7 +129,7 @@ header .container nav a {
 	color: #333333;
 	font-size: 12pt;
 }
-section.container .content {margin-top: 80px;}
+section.container .content {margin: 80px 0;}
 section.container .content .term {margin-bottom: 32px;}
 section.container .content .term strong {margin-right: 8px;}
 
@@ -258,9 +265,75 @@ div.supportForm div:nth-child(4) {
 	display: flex;
 	justify-content: flex-end;
 }
+section.footer {
+	background-color: #333333;
+	color: #FFFFFF;
+	footer {
+		display: grid;
+		grid-template-areas: "logo logo" "navFooter media" "rights rights";
+		div.logo {
+			grid-area: logo;
+			margin: 12px 0;
+			a.logo {
+				display: block;
+				img {width: 120px;}
+			}
+		}
+		nav.navFooter {
+			grid-area: navFooter;
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 24px;
+			a {
+				text-transform: uppercase;
+				padding: 8px 0px;
+				font-weight: 400;
+				color: #999;
+				font-size: 10pt;
+				max-width: 100px;
+			}
+		}
+		div.media {
+			grid-area: media;
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 24px;
+			a {
+				text-transform: uppercase;
+				padding: 8px 0px;
+				font-weight: 400;
+				color: #999;
+				font-size: 10pt;
+				max-width: 150px;
+			}
+			a.instagram {
+				background: url('/images/iconInstagram.svg') no-repeat;
+				background-position: 0px;
+				background-size: 24px;
+				padding-left: 32px;
+			}
+			a.facebook {
+				background: url('/images/iconFacebook.svg') no-repeat;
+				background-position: 0px;
+				background-size: 24px;
+				padding-left: 32px;
+			}
+		}
+		div.rights {
+			grid-area: rights;
+			text-align: center;
+			border-top: 1px solid #444;
+			padding: 20px 0;
+			p {
+				font-weight: 400;
+				color: #999;
+				font-size: 12pt;
+				margin-bottom: 0;
+			}
+		}
+	}	
+}
 
-footer {text-align: center; padding-top: 16px;}
-footer p {color: #333333;}
 
 @media (max-width: 800px) {
 		section.exclusive .subscribe {display: grid;grid-template-columns: none}
@@ -290,7 +363,7 @@ footer p {color: #333333;}
 			overflow: hidden;
 		}
 		header .container nav.active {display: block;animation: slide 0.7s forwards;box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.05);}
-    header .container nav a {display: block; color: #333333; padding-bottom: 16px;}
+		header .container nav a {display: block; color: #333333; padding-bottom: 16px;}
     
 }
 
@@ -323,6 +396,10 @@ footer p {color: #333333;}
 		}
 		section.benefits {
 			padding: 64px 15px;
+		}
+		footer {
+			grid-template-areas: "logo" "navFooter" "media" "rights" !important;
+			grid-template-columns: 1fr;
 		}
 
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 import Header from '../components/header';
+import Footer from '../components/footer';
 
 export default function Home() {
     const [sent, setSent] = useState(false);
@@ -133,9 +134,8 @@ export default function Home() {
         <a><h3>NENHUMA TAXA</h3></a>
         <a><h3>SEM concorrência</h3></a>
     </div>
-    <footer>
-        <p>Copyright @ 2020 - Todos os Direitos Reservados - Carpede</p>
-    </footer>
+    
+    <Footer />
 
     </div>
   )

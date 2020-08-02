@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Header from '../components/header';
+import Footer from '../components/footer';
 import { TextInput, TextArea } from '../components/input';
 
 export default function Support() {
@@ -39,6 +40,7 @@ export default function Support() {
           </div>
         </section>
       </div>
+      <Footer />
     </div>
   )
 }
