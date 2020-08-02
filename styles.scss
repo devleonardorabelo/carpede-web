@@ -44,6 +44,41 @@ button {
 	color: #FFFFFF;
 	font-size: 12pt;
 	font-weight: 600;
+	min-width: 200px;
+	cursor: pointer;
+}
+div.textInput {
+	display: flex;
+	flex-direction: column;
+	min-height: 64px;
+	background: #E2E2E2;
+	border-radius: 8px;
+	padding: 10px 20px;
+}
+div.textInput label {
+	font-size: 10pt;
+	text-transform: uppercase;
+	font-weight: 700;
+	margin-bottom: 4px;
+}
+div.textInput input {
+	font-size: 12pt;
+	text-transform: uppercase;
+	font-weight: 400;
+	border:0px;
+	background: transparent;
+}
+div.textInput textarea {
+	min-height: 200px;
+	background: #E2E2E2;
+	border:0px;
+	border-radius: 8px;
+	padding: 20px;
+	font-size: 12pt;
+	font-weight: 700;
+	font-family: 'Montserrat', sans-serif;
+	color: #333333;
+	resize: vertical;
 }
 
 .fluid-container {display: block; width: 100%;padding: 0px;}
@@ -182,7 +217,12 @@ section.reasons div div.why p {
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-div.about {display: grid;grid-template-areas: "image1 image1" "image2 image3";min-height: 100vh;}
+div.about {
+	display: grid;
+	grid-template-areas: "image1 image1" "image2 image3";
+	min-height: 100vh;
+	grid-template-columns: 1fr 1fr;
+}
 div.about a {text-align: center;display: grid;}
 div.about a h3 {
 	align-self: center;
@@ -195,8 +235,29 @@ div.about a:nth-child(1) {
 	background-size: cover;
 	background-color: #333333;
 }
-div.about a:nth-child(2) {min-width: 50vw;grid-area:image2;background: rgb(77,213,167);background: -moz-linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);background: -webkit-linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);background: linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4dd5a7",endColorstr="#5294ea",GradientType=1);}
-div.about a:nth-child(3) {min-width: 50vw;grid-area:image3;background: rgb(76,139,219);background: -moz-linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);background: -webkit-linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);background: linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4c8bdb",endColorstr="#000000",GradientType=1);}
+div.about a:nth-child(2) {grid-area:image2;background: rgb(77,213,167);background: -moz-linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);background: -webkit-linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);background: linear-gradient(38deg, rgba(77,213,167,1) 0%, rgba(82,148,234,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4dd5a7",endColorstr="#5294ea",GradientType=1);}
+div.about a:nth-child(3) {grid-area:image3;background: rgb(76,139,219);background: -moz-linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);background: -webkit-linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);background: linear-gradient(321deg, rgba(76,139,219,1) 0%, rgba(0,0,0,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4c8bdb",endColorstr="#000000",GradientType=1);}
+
+div.supportForm {
+	display: grid;
+	grid-template-areas: "input1 input2" "textarea textarea" "button button";
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+}
+div.supportForm div:nth-child(1) {
+	grid-area: input1;
+}
+div.supportForm div:nth-child(2) {
+	grid-area: input2;
+}
+div.supportForm div:nth-child(3) {
+	grid-area: textarea;
+}
+div.supportForm div:nth-child(4) {
+	grid-area: button;
+	display: flex;
+	justify-content: flex-end;
+}
 
 footer {text-align: center; padding-top: 16px;}
 footer p {color: #333333;}
@@ -214,7 +275,8 @@ footer p {color: #333333;}
 		section.reasons div div.why p {
 			max-width: 60vw;
 		}
-    div.about {grid-template-columns: 1fr;grid-template-areas: "image1" "image2" "image3";}
+		div.about {grid-template-columns: 1fr;grid-template-areas: "image1" "image2" "image3";}
+		div.supportForm {grid-template-columns: 1fr;grid-template-areas: "input1" "input2" "textarea" "button";}
     header .toggleNav {display: block; width: 48px; height: 48px;}
     header .container nav {
 			position: absolute;

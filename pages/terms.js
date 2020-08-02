@@ -7,7 +7,7 @@ export default function Terms() {
       <Header />
       <section className="container">
         <div className="content">
-          <h2 className="no-margin">TERMOS DE USO</h2>
+          <h3 className="no-margin">TERMOS DE USO</h3>
           <p>Estes são os termos de uso dos serviços prestados pela Carpede.</p>
           
           <div className="term">
