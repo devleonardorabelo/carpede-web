@@ -18,7 +18,7 @@ export default function Home() {
     }
 
     return (
-    <div classNameName="app">
+    <div className="app">
       <Head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -78,7 +78,7 @@ export default function Home() {
         <link rel="icon" href="source/images/favicon.png" type="image/x-icon" />
         <link rel="shortcut icon" type="image/x-icon" href="source/images/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="public/css/style.css" />
+        
       </Head>
       <div className="fluid-container start">
         <Header />
