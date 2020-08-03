@@ -13,7 +13,7 @@ export default function Support() {
 
   const handleSendSupport = async () => {
     if(name.length > 3 && email.length > 10 && text > 10) {
-      const { data } = await axios.post('https://main.carpede.com/subscribe', { name, email, text });
+      const { data } = await axios.post('https://main.carpede.com/support', { name, email, text });
       if (data) setSent(true);
     }
   }
