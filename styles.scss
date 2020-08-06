@@ -120,23 +120,6 @@ div.textInput textarea {
 	min-height: 100vh;
 }
 
-div.row2 {
-	display: grid;
-	grid-template-areas: "div1 div2";
-	grid-template-columns: 1fr 1fr;
-	gap: 12px;
-	div:nth-child(1) {grid-area: div1;}
-	div:nth-child(2) {grid-area: div2;}
-}
-div.row3 {
-	display: grid;
-	grid-template-areas: "div1 div2 div3";
-	gap: 12px;
-	div:nth-child(1) {grid-area: div1;}
-	div:nth-child(2) {grid-area: div2;}
-	div:nth-child(3) {grid-area: div3;}
-}
-
 .start {
 	display:grid;
 	min-height: 100vh;
@@ -376,16 +359,46 @@ section.footer {
 	}	
 }
 
-section.container .formSign {
+form.formSign {
 	min-width: 350px;
 	div.textInput {	margin-bottom: 12px;}
 	button { width: 100%; }
+	div.signup div.rowA1 {
+		display: grid;
+		grid-template-areas: "div1 div2";
+		grid-template-columns: 2fr 1fr;
+		gap: 12px;
+		div:nth-child(1) {grid-area: div1;}
+		div:nth-child(2) {grid-area: div2;}
+	}
+	div.signup div.row3 {
+		display: grid;
+		grid-template-areas: "div1 div2 div3";
+		grid-template-columns: minmax(120px, 1fr) minmax(120px, 1fr) minmax(200px, 1fr);
+		gap: 12px;
+		div:nth-child(1) {grid-area: div1;}
+		div:nth-child(2) {grid-area: div2;}
+		div:nth-child(3) {grid-area: div3;}
+	}
+}
+
+@media (max-width: 550px) {
+	div.signup div.rowA1 {
+		display: grid;
+		grid-template-areas: "div1" "div2" !important;
+		grid-template-columns: 1fr !important;
+		gap: 0px !important;
+	}
+	div.signup div.row3 {
+		display: grid;
+		grid-template-areas: "div1" "div2" "div3" !important;
+		grid-template-columns: 1fr !important;
+		gap: 0px !important;
+	}
 }
 
 
 @media (max-width: 800px) {
-		div.row2 { grid-template-areas: "div1" "div2"; grid-gap: 0px; gap: 0px;}
-		div.row2 { grid-template-areas: "div1" "div2" "div3"; grid-gap: 0px; gap: 0px;}
 		section.exclusive .subscribe {display: grid;grid-template-columns: none}
 		section.exclusive .subscribe input {border-radius: 8px; margin-bottom: 12px;}
 		section.exclusive .subscribe button {border-radius: 8px;}
@@ -414,13 +427,10 @@ section.container .formSign {
 		}
 		header .container nav.active {display: block;animation: slide 0.7s forwards;box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.05);}
 		header .container nav a {display: block; color: #333333; padding-bottom: 16px;}
-    
+	
 }
 
 @media (min-width: 800px) {
-		div.row2, div.row3 {
-			width: 800px;
-		}
 		section.benefits div.mobileImage img {
 			padding-right: 64px;
 		}
@@ -454,6 +464,12 @@ section.container .formSign {
 		footer {
 			grid-template-areas: "logo" "navFooter" "media" "rights" !important;
 			grid-template-columns: 1fr;
+		}
+		div.signup div.row3 {
+			display: grid;
+			grid-template-areas: "div1" "div2" "div3" !important;
+			grid-template-columns: 1fr !important;
+			gap: 0px !important;
 		}
 
 }

@@ -41,6 +41,9 @@ export default function Header() {
                     <Link href="/terms">
                         <a>TERMOS</a>
                     </Link>
+                    <Link href="/account/signin">
+                        <a>ENTRAR</a>
+                    </Link>
                 </nav>
             </div>
         </header>

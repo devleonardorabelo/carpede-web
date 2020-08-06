@@ -10,7 +10,7 @@ export const TextInput = ({ label, action }) => {
 };
 export const TextArea = ({ label, action }) => (
     <div className="textInput">
-        <label>{label}</label>
+        <label htmlFor={label}>{label}</label>
         <textarea onChange={action}></textarea>
     </div>
 );

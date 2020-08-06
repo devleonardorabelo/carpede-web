@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { TextInput } from '../../components/input';
-import { MdAccountCircle } from 'react-icons/md';
 import Link from 'next/link';
+import { MdAccountCircle } from 'react-icons/md';
+
+import { TextInput } from '../../components/input';
+import Header from '../../components/header';
 
 const Signin = () => {
     const [email, setEmail] = useState('');
@@ -10,6 +12,7 @@ const Signin = () => {
     return (
         <div className="app">
             <div className="fluid-container">
+                <Header />
                 <section className="container h100 centralized-items">
                     <form className="formSign">
                         <h3>Entre</h3>
