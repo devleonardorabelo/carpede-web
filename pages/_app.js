@@ -1,7 +1,14 @@
-import '../styles.scss'
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { AuthProvider } from '../contexts/auth';
+import '../styles.scss';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }) => {
+    return (
+        <AuthProvider>
+            <Component {...pageProps} />
+        </AuthProvider>
+    );
+};
 
-export default MyApp
+export default MyApp;
