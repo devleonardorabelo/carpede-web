@@ -4,14 +4,16 @@ const AuthContext = createContext({ signed: false });
 
 export const AuthProvider = ({ children }) => {
     const [store, setStore] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const checkisSigned = async () => {
         try {
             const current = localStorage.getItem('@Carpede:store');
-            if (current) setStore(JSON.parse(current));
+            if (current) setStore(await JSON.parse(current));
         } catch (err) {
             console.log(err);
         }
+        setLoading(false);
     };
 
     const signIn = (currentStore) => {
@@ -41,7 +43,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={{ signed: !!store, store, signIn, signOut }}>
+        <AuthContext.Provider value={{ signed: !!store, loading, store, signIn, signOut }}>
             {children}
         </AuthContext.Provider>
     );

@@ -5,11 +5,12 @@ import AuthContext from './contexts/auth';
 
 export function AuthRoute(Component) {
     return () => {
-        const { signed } = useContext(AuthContext);
+        const { signed, loading } = useContext(AuthContext);
+        console.log(signed, '<--');
         const router = useRouter();
 
         useEffect(() => {
-            if (!signed) router.push('/');
+            if (!signed && !loading) router.push('/account/signin');
         }, [signed]);
 
         return <Component {...arguments} />;
