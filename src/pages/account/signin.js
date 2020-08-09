@@ -53,7 +53,7 @@ const Signin = () => {
               label="email"
               name="email"
               error={alert}
-              action={(e) => setEmail(e.target.value)}
+              action={(e) => setEmail(e.target.value.toLowerCase())}
             />
             <TextInput
               label="senha"

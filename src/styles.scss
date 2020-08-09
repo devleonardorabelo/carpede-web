@@ -449,6 +449,46 @@ div.navItem {
 	}
 }
 
+div.storeAvatar {
+	display: flex;
+	flex-direction: row;
+	padding: 16px 0;
+	img { max-height: 100%; max-width: 100%; margin-right: 16px; }
+	.storeAvatarImage {
+		background-color: #E2E2E2;
+		width: 80px;
+		height: 80px;
+		border-radius: 100%;
+	}
+	.storeAvatarContent {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+	}
+	h4 { text-transform: capitalize; }
+}
+
+.cardItem {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-radius: 8px;
+	padding: 4px;
+	margin-bottom: 4px;
+	background-color: #F9F9F9;
+	img {
+		width: 80px;
+		height: 80px;
+		border-radius: 8px;
+	}
+	div.content {
+		display: flex;
+		flex-direction: column;
+		padding: 16px;
+		flex-grow: 1;
+	}
+}
+
 @media (max-width: 550px) {
 	div.signup div.rowA1 {
 		display: grid;

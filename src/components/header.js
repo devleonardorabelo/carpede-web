@@ -52,7 +52,11 @@ export default function Header() {
 
 export const HeaderApp = ({ iconLeft, actionLeft, iconRight, actionRight, children }) => (
   <header className="app">
-    <a className="icon">{iconLeft}</a>
-    <a className="icon">{iconRight}</a>
+    <a className="icon" onClick={actionLeft}>
+      {iconLeft}
+    </a>
+    <a className="icon" onClick={actionRight}>
+      {iconRight}
+    </a>
   </header>
 );
