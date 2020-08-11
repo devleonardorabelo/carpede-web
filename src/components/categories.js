@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import FlatList from 'flatlist-react';
 
 import apiReq from '../services/reqToken';
 import { CardItem } from './item';
 
-const Categories = () => {
+const Categories = ({ sort, complete }) => {
   const [categories, setCategories] = useState([]);
-  const [sort, setSort] = useState(1);
+  const [hasMoreItems, setHasMoreItems] = useState(true);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -31,6 +30,8 @@ const Categories = () => {
       setCategories([...categories, ...data]);
       setTotal(headers['x-total-count']);
       setPage(page + 1);
+    } else {
+      setHasMoreItems(false);
     }
 
     setLoading(false);
@@ -84,14 +85,20 @@ const Categories = () => {
     }
   }, []);
 
+  useEffect(() => {
+    sortCategories();
+  }, [sort]);
+
   return (
     <div className="list">
       <FlatList
         list={categories}
-        key={(item) => String(item._id)}
-        renderItem={(item) => <CardItem action={() => {}} image={item.image} title={item.name} />}
-        hasMoreItems={true}
+        renderItem={(item) => (
+          <CardItem action={() => {}} image={item.image} title={item.name} key={item._id} />
+        )}
+        hasMoreItems={hasMoreItems}
         loadMoreItems={loadCategories}
+        paginationLoadingIndicator={<div>testando</div>}
       />
     </div>
   );

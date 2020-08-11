@@ -50,13 +50,11 @@ export default function Header() {
   );
 }
 
-export const HeaderApp = ({ iconLeft, actionLeft, iconRight, actionRight, children }) => (
+export const HeaderApp = ({ iconLeft, actionLeft, children }) => (
   <header className="app">
-    <a className="icon" onClick={actionLeft}>
+    <button className="icon" onClick={actionLeft}>
       {iconLeft}
-    </a>
-    <a className="icon" onClick={actionRight}>
-      {iconRight}
-    </a>
+    </button>
+    {children}
   </header>
 );
