@@ -56,7 +56,11 @@ button.button {
 	min-width: 200px;
 	cursor: pointer;
 	margin-bottom: 12px;
+	&.normal {
+		height: 48px;
+	}
 }
+
 .linkButton {
 	display: flex;
 	align-items: center;
@@ -200,7 +204,6 @@ header.headerSelector {
 		height: 32px;
 		padding: 0 16px;
 		border: 0px;
-		color: #FFFFFF;
 		border-radius: 8px;
 		font-weight: 600;
 		font-size: 12pt;
@@ -208,7 +211,6 @@ header.headerSelector {
 		cursor: pointer;
 		text-transform: capitalize;
 		margin-bottom: 12px;
-		background: linear-gradient(252.26deg, #4F8FDF 0%, #45D9A6 100%);
 	}
 } 
 section.container .content {margin: 80px 0;}

@@ -25,11 +25,11 @@ const Products = ({ sort }) => {
       params: { page, category: category._id }
     });
 
+    setPage(page + 1);
+
     if (data.products.length) {
       setProducts([...products, ...data.products]);
-
       setTotal(headers['x-total-count']);
-      setPage(page + 1);
     } else {
       setHasMoreItems(false);
     }
@@ -74,10 +74,16 @@ const Products = ({ sort }) => {
   return (
     <div className="list">
       <header className="headerSelector">
+        <NavigationButton
+          title="Todos"
+          active={!category._id ? true : false}
+          action={() => loadProductWithParams({})}
+        />
         {categories.map((item) => (
           <NavigationButton
             key={item._id}
             title={item.name}
+            active={item._id === category._id ? true : false}
             action={() => loadProductWithParams(item)}
           />
         ))}
@@ -105,11 +111,18 @@ const Products = ({ sort }) => {
                 <div className="cardItem"></div>
               </>
             )}
-            {!loading && products.length === 0 && <div>nenhum</div>}
+            {!loading && products.length === 0 && page !== 1 && (
+              <div>
+                <h4>{category.name}</h4>
+                <p>Nenhum Produto nessa categoria. Clique no botão abaixo e adicione!</p>
+                <button className="button normal">Adicionar</button>
+              </div>
+            )}
           </>
         )}
         hasMoreItems={hasMoreItems}
         loadMoreItems={loadProducts}
+        paginationLoadingIndicator={<div>carregando...</div>}
       />
     </div>
   );

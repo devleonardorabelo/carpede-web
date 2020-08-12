@@ -17,7 +17,8 @@ const Signin = () => {
   const { signIn } = useContext(AuthContext);
   const router = useRouter();
 
-  async function handleSignin() {
+  async function handleSignin(e) {
+    e.preventDefault();
     setStatus('loading');
 
     const { data } = await api.post('signin', { email, password });
@@ -47,7 +48,7 @@ const Signin = () => {
       <div className="fluid-container">
         <Header />
         <section className="container h100 centralized-items">
-          <div className="formSign">
+          <form className="formSign" onSubmit={handleSignin}>
             <h3>Entre</h3>
             <TextInput
               label="email"
@@ -62,13 +63,15 @@ const Signin = () => {
               action={(e) => setPassword(e.target.value)}
               type="password"
             />
-            <button onClick={handleSignin}>Entrar</button>
+            <button className="button" type="submit">
+              Entrar
+            </button>
             <Link href="signup">
               <div className="linkButton">
                 <MdAccountCircle className="icon" /> Quero criar um conta
               </div>
             </Link>
-          </div>
+          </form>
         </section>
       </div>
     </div>

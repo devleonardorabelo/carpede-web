@@ -26,10 +26,11 @@ const Categories = ({ sort, complete }) => {
       params: { page }
     });
 
+    setPage(page + 1);
+
     if (data.length) {
       setCategories([...categories, ...data]);
       setTotal(headers['x-total-count']);
-      setPage(page + 1);
     } else {
       setHasMoreItems(false);
     }
@@ -95,6 +96,29 @@ const Categories = ({ sort, complete }) => {
         list={categories}
         renderItem={(item) => (
           <CardItem action={() => {}} image={item.image} title={item.name} key={item._id} />
+        )}
+        renderWhenEmpty={() => (
+          <>
+            {loading && (
+              <>
+                <div className="cardItem"></div>
+                <div className="cardItem"></div>
+                <div className="cardItem"></div>
+                <div className="cardItem"></div>
+                <div className="cardItem"></div>
+              </>
+            )}
+            {!loading && categories.length === 0 && page !== 1 && (
+              <div>
+                <h4>Categoria</h4>
+                <p>
+                  As categorias servem para organizar a lista dos seus produtos. Clique abaixo e
+                  adicione sua primeira categoria.
+                </p>
+                <button className="button normal">Adicionar</button>
+              </div>
+            )}
+          </>
         )}
         hasMoreItems={hasMoreItems}
         loadMoreItems={loadCategories}
