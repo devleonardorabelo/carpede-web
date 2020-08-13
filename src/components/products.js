@@ -111,12 +111,25 @@ const Products = ({ sort }) => {
                 <div className="cardItem"></div>
               </>
             )}
-            {!loading && products.length === 0 && page !== 1 && (
+            {!loading && categories.length === 0 && page !== 1 ? (
               <div>
-                <h4>{category.name}</h4>
-                <p>Nenhum Produto nessa categoria. Clique no botão abaixo e adicione!</p>
+                <h4>Nenhuma Categoria.</h4>
+                <p>
+                  As categorias servem para organizar a lista dos seus produtos. Clique abaixo e
+                  adicione sua primeira categoria.
+                </p>
                 <button className="button normal">Adicionar</button>
               </div>
+            ) : (
+              !loading &&
+              products.length === 0 &&
+              page !== 1 && (
+                <div>
+                  <h4>{category.name}</h4>
+                  <p>Nenhum Produto nessa categoria. Clique no botão abaixo e adicione!</p>
+                  <button className="button normal">Adicionar</button>
+                </div>
+              )
             )}
           </>
         )}
