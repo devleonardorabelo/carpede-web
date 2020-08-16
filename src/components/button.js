@@ -22,8 +22,10 @@ export const CircularButton = ({ icon, action, style }) => (
     {icon}
   </button>
 );
-export const Button = ({ title, action }) => (
-  <button className="button" onClick={action}>
-    {title}
+export const Button = ({ title, action, disabled, status }) => (
+  <button className="button" onClick={action} disabled={disabled}>
+    {status === 'loading' && 'carregando'}
+    {status === 'done' && 'Feito'}
+    {status === '' && title}
   </button>
 );
