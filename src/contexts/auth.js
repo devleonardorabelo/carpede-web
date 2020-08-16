@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-
 const AuthContext = createContext({ signed: false });
 
 export const AuthProvider = ({ children }) => {
@@ -10,23 +9,16 @@ export const AuthProvider = ({ children }) => {
   const router = useRouter();
 
   const checkisSigned = async () => {
-    setLoading(true);
     try {
       const current = localStorage.getItem('@Carpede:store');
-      if (current) {
-        setStore(await JSON.parse(current));
-        router.push('/app');
-      } else {
-        router.push('/account/signin');
-      }
+      if (!current) return router.push('/account/signin');
+      setStore(await JSON.parse(current));
     } catch (err) {
       console.log(err);
     }
-    setLoading(false);
   };
 
   const signIn = (currentStore) => {
-    setLoading(true);
     const { avatar, name, whatsapp, email, token, store_id } = currentStore;
     setStore({
       avatar,
@@ -41,15 +33,12 @@ export const AuthProvider = ({ children }) => {
     } catch (err) {
       console.log(err);
     }
-    setLoading(false);
   };
 
   const signOut = () => {
-    setLoading(true);
     setStore(null);
     localStorage.clear();
     router.push('/account/signin');
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -57,8 +46,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider
-      value={{ signed: !!store, loading, store, signIn, signOut, checkisSigned }}>
+    <AuthContext.Provider value={{ signed: !!store, store, signIn, signOut, checkisSigned }}>
       {children}
     </AuthContext.Provider>
   );

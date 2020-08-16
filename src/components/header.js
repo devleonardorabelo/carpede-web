@@ -26,19 +26,19 @@ export default function Header() {
         &#9776;
       </button>
       <div className="container">
-        <Link href="/">
+        <Link href="/site/">
           <a className="logo">
             <img src="/images/logo-carpede.png" alt="Carpede" title="Carpede" />
           </a>
         </Link>
         <nav className={isActived ? 'active' : 'null'}>
-          <Link href="/">
+          <Link href="/site/">
             <a>INÍCIO</a>
           </Link>
-          <Link href="/support">
+          <Link href="/site/support">
             <a>SUPORTE</a>
           </Link>
-          <Link href="/terms">
+          <Link href="/site/terms">
             <a>TERMOS</a>
           </Link>
           <Link href="/account/signin">

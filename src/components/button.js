@@ -17,3 +17,13 @@ export const FilterButton = ({ icon, action, badge }) => (
     <MdFilterList />
   </button>
 );
+export const CircularButton = ({ icon, action, style }) => (
+  <button className="circularButton" onClick={action} style={style}>
+    {icon}
+  </button>
+);
+export const Button = ({ title, action }) => (
+  <button className="button" onClick={action}>
+    {title}
+  </button>
+);

@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import FlatList from 'flatlist-react';
-
+import { useRouter } from 'next/router';
 import apiReq from '../services/reqToken';
-import { CardItem } from './item';
 
-const Categories = ({ sort, complete }) => {
+import { MdAdd } from 'react-icons/md';
+import { CardItem } from './item';
+import { CircularButton } from './button';
+
+const Categories = ({ sort, addAction }) => {
+  const router = useRouter();
+  const { method, category } = router.query;
+
   const [categories, setCategories] = useState([]);
   const [hasMoreItems, setHasMoreItems] = useState(true);
   const [total, setTotal] = useState(0);
@@ -63,25 +69,21 @@ const Categories = ({ sort, complete }) => {
 
   useEffect(() => {
     loadCategories();
-    return;
-    if (route) {
-      const index = categories.findIndex((obj) => obj._id === route.category._id);
+    if (category) {
+      const index = categories.findIndex((obj) => obj._id === category._id);
 
-      if (index !== -1 && route.method === 'destroy') {
+      if (index !== -1 && method === 'destroy') {
         categories.splice(index, 1);
         setCategories([...categories]);
-        route = {};
         return;
       }
-      if (index !== -1 && route.method === 'update') {
-        categories[index] = route.category;
+      if (index !== -1 && method === 'update') {
+        categories[index] = category;
         setCategories([...categories]);
-        route = {};
         return;
       }
-      if (index === -1 && route.method === 'create') {
-        setCategories([...categories, route.category]);
-        route = {};
+      if (index === -1 && method === 'create') {
+        setCategories([...categories, category]);
       }
     }
   }, []);
@@ -91,7 +93,7 @@ const Categories = ({ sort, complete }) => {
   }, [sort]);
 
   return (
-    <div className="list">
+    <div className="list" style={{ position: 'relative' }}>
       <FlatList
         list={categories}
         renderItem={(item) => (
@@ -124,6 +126,9 @@ const Categories = ({ sort, complete }) => {
         loadMoreItems={loadCategories}
         paginationLoadingIndicator={<div>testando</div>}
       />
+      <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '16px 0' }}>
+        <CircularButton icon={<MdAdd />} action={addAction} />
+      </div>
     </div>
   );
 };

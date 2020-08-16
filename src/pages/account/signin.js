@@ -11,8 +11,8 @@ import Header from '../../components/header';
 const Signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [alert, setAlert] = useState();
-  const [status, setStatus] = useState();
+  const [alert, setAlert] = useState('');
+  const [status, setStatus] = useState('');
 
   const { signIn } = useContext(AuthContext);
   const router = useRouter();

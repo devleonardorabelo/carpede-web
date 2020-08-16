@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import React, { useContext, useState } from 'react';
 import { AuthRoute } from '../../auth';
 import AuthContext from '../../contexts/auth';
 
-import { FiLogOut } from 'react-icons/fi';
-import { MdDirectionsBike } from 'react-icons/md';
+import { MdDirectionsBike, MdPowerSettingsNew } from 'react-icons/md';
 import { FiPackage, FiTag, FiPercent, FiUser } from 'react-icons/fi';
 
 import { HeaderApp } from '../../components/header';
@@ -12,10 +10,12 @@ import { NavItem, Avatar } from '../../components/item';
 import Categories from '../../components/categories';
 import Products from '../../components/products';
 import { FilterButton } from '../../components/button';
+import { NewCategory } from '../../components/modal';
 
 const App = () => {
   const [currentView, setCurrentView] = useState('categories');
   const [sort, setSort] = useState(-1);
+  const [showModalAddCategory, setShowModalAddCategory] = useState(false);
 
   const { store, signOut } = useContext(AuthContext);
 
@@ -24,7 +24,7 @@ const App = () => {
   return (
     <div className="app">
       <div className="container">
-        <HeaderApp iconLeft={<FiLogOut />} actionLeft={signOut}>
+        <HeaderApp iconLeft={<MdPowerSettingsNew />} actionLeft={signOut}>
           {currentView === 'categories' || currentView === 'products' ? (
             <FilterButton action={() => setSort(sort === -1 ? 1 : -1)} />
           ) : null}
@@ -70,11 +70,18 @@ const App = () => {
             />
           </nav>
           <div className="content">
-            {currentView === 'categories' && <Categories sort={sort} />}
+            {currentView === 'categories' && (
+              <Categories sort={sort} addAction={() => setShowModalAddCategory(true)} />
+            )}
             {currentView === 'products' && <Products sort={sort} />}
           </div>
         </section>
       </div>
+      <NewCategory
+        store={store}
+        isActived={showModalAddCategory}
+        closeAction={() => setShowModalAddCategory(!showModalAddCategory)}
+      />
     </div>
   );
 };

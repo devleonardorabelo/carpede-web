@@ -1,9 +1,11 @@
 import React from 'react';
 
-export const TextInput = ({ label, action, value, type, name, error }) => {
+export const TextInput = ({ label, action, value, type, name, error, style }) => {
   return (
     <>
-      <div className={error && error.input === name ? 'textInput textInputErrored' : 'textInput'}>
+      <div
+        className={error && error.input === name ? 'textInput textInputErrored' : 'textInput'}
+        style={style}>
         <label>{label}</label>
         <input type={type ? type : 'text'} onChange={action} value={value} />
       </div>

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
 *,:after,:before{margin:0;padding:0;outline:0;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-box-sizing:border-box;text-decoration:none;list-style:none}
-
+input[type="file"] { display: none; }
 body,input,button {font-family: 'Montserrat', sans-serif; color: #333333}
 h1,h2,h3,h4 {text-transform: uppercase;	}
 
@@ -74,6 +74,20 @@ button.button {
 .filterButton {
 	font-size: 28px;
 	border: 0;
+}
+.circularButton {
+	height: 64px;
+	width: 64px;
+	background: linear-gradient(252.26deg, #4F8FDF 0%, #45D9A6 100%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100%;
+	border: 0;
+	svg {
+		font-size: 16pt;
+		color: #FFFFFF;
+	}
 }
 div.textInput {
 	display: flex;
@@ -162,6 +176,7 @@ header.site {
 	position: fixed;
 	width: 100%;
 	background-color: #FFFFFF;
+	z-index: 999;
 }
 header.scrolled {box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.05); opacity: 0.9;transition: 1s;}
 header.site .toggleNav {position: absolute;right: 20px;top:15px;padding: 10px 15px;font-size: 14pt;display: none; min-width: auto;}
@@ -212,7 +227,7 @@ header.headerSelector {
 		margin-bottom: 12px;
 	}
 } 
-section.container .content {margin: 80px 0;}
+section.container .content {padding-top: 80px;}
 section.container .content .term {margin-bottom: 32px;}
 section.container .content .term strong {margin-right: 8px;}
 
@@ -538,6 +553,54 @@ div.storeAvatar {
 	}
 }
 
+div.modalBackground {
+	background-color: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 999;
+	padding: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	div.modal {
+		position: relative;
+		background-color: #FFFFFF;
+		max-width: 800px;
+		min-width: 300px;
+		border-radius: 8px;
+		padding: 16px;
+		box-shadow: 0px 4px 8px #333333;
+		button.closeButton {
+			position: absolute;
+			top: 24px;
+			right: 24px;
+			background-color: rgba(255, 255, 255, 0.7);
+			padding: 8px;
+			border: 0;
+			border-radius: 100%;
+			font-size: 16pt;
+			line-height: 16pt;
+			height: 38px;
+			width: 38px;
+			cursor: pointer;
+			z-index: 9999;
+		}
+		div.previewImage {
+			width: 100%;
+			min-height: 200px;
+			border-radius: 8px;
+			background-color: #E2E2E2;
+		}
+		.modalContent {
+			padding: 16px 0;
+			background-size: 100% auto;
+		}
+	}
+}
 
 @media (max-width: 800px) {
 		section.exclusive .subscribe {display: grid;grid-template-columns: none}
