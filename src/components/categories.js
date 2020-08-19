@@ -20,8 +20,8 @@ const Categories = ({ sort }) => {
   } = useContext(AppContext);
 
   const [showModalAddCategory, setShowModalAddCategory] = useState(false);
-  const [showModalAddProduct, setShowModalAddProduct] = useState(false);
-  const [categorySelected, setCategorySelected] = useState({});
+  const [showModalEditCategory, setShowModalEditCategory] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState({});
 
   useEffect(() => {
     loadCategories();
@@ -39,8 +39,8 @@ const Categories = ({ sort }) => {
           renderItem={(item) => (
             <CardItem
               action={() => {
-                setCategorySelected(item);
-                setShowModalAddProduct(!showModalAddProduct);
+                setSelectedCategory(item);
+                setShowModalEditCategory(!showModalEditCategory);
               }}
               image={item.image}
               title={item.name}
@@ -87,9 +87,10 @@ const Categories = ({ sort }) => {
         closeAction={() => setShowModalAddCategory(!showModalAddCategory)}
       />
       <EditCategory
-        category={categorySelected}
-        isActived={showModalAddProduct}
-        closeAction={() => setShowModalAddProduct(!showModalAddProduct)}
+        store={store}
+        category={selectedCategory}
+        isActived={showModalEditCategory}
+        closeAction={() => setShowModalEditCategory(!showModalEditCategory)}
       />
     </>
   );

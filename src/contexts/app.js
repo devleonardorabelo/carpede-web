@@ -22,13 +22,13 @@ export const AppProvider = ({ children }) => {
 
     setLoading(true);
 
-    const { data } = await apiReq.get('categories', {
-      params: { page: productsPage }
+    const { data } = await apiReq.get('products', {
+      params: { page: productsPage, category: category._id }
     });
 
-    if (data.length) {
+    if (data.products.length) {
       setProductsPage(productsPage + 1);
-      setProducts([...categories, ...data]);
+      setProducts([...products, ...data.products]);
     } else {
       setProductsHasMoreItems(false);
     }
@@ -36,13 +36,24 @@ export const AppProvider = ({ children }) => {
     setLoading(false);
   };
 
+  const loadProductsWithParams = (selectedCategory) => setCategory(selectedCategory);
+
+  useEffect(() => {
+    setProducts([]);
+    setProductsPage(1);
+  }, [category]);
+
+  useEffect(() => {
+    loadProducts();
+  }, [products]);
+
   const loadCategories = async () => {
     if (loading) return;
 
     setLoading(true);
 
     const { data } = await apiReq.get('categories', {
-      params: { page: categoriesPage, category: category._id }
+      params: { page: categoriesPage }
     });
 
     if (data.length) {
@@ -72,10 +83,18 @@ export const AppProvider = ({ children }) => {
     return data;
   };
 
-  const editCategory = async (id, image, name) => {
+  const editCategory = async (id, image, directory, file, name) => {
+    let currentImage;
+
+    if (file !== null) {
+      currentImage = await uploadImage(file, directory);
+    } else {
+      currentImage = image;
+    }
+
     const { data } = await apiReq.post('categories/edit', {
       id,
-      image,
+      image: currentImage,
       name
     });
 
@@ -89,6 +108,19 @@ export const AppProvider = ({ children }) => {
     }
     return data;
   };
+
+  const deleteCategory = async (id) => {
+    const { data } = await apiReq.post('categories/delete', { id });
+    if (data) {
+      const index = categories.findIndex((obj) => obj._id === id);
+      categories.splice(index, 1);
+      setCategories([...categories]);
+    }
+  };
+
+  useEffect(() => {
+    loadCategories();
+  }, [categories]);
 
   const sortArray = (array, order, target) => {
     setSort(order);
@@ -112,8 +144,10 @@ export const AppProvider = ({ children }) => {
       value={{
         products,
         loadProducts,
+        loadProductsWithParams,
         productsPage,
         productsHasMoreItems,
+        category,
 
         categories,
         loadCategories,
@@ -121,6 +155,7 @@ export const AppProvider = ({ children }) => {
         categoriesHasMoreItems,
         addCategory,
         editCategory,
+        deleteCategory,
 
         loading,
         sortArray
