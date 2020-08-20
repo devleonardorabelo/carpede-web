@@ -102,7 +102,7 @@ div.textInput {
 div.textInputErrored {
 	border: 2px solid red;
 }
-div.textInput label {
+div.textInput>label {
 	font-size: 10pt;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -124,6 +124,16 @@ div.textInput input[type="password"] {
 	font: small-caption;
 	font-size: 12pt;
 	letter-spacing: 6px;
+}
+div.textInput .checkbox {
+	display: flex;
+	flex-direction: row;
+	padding: 30px 20px 0 20px;
+	height: 50px;
+	align-items: center;
+	label {
+		margin-left: 8px;
+	}
 }
 div.textInput textarea {
 	min-height: 200px;
@@ -522,6 +532,7 @@ div.storeAvatar {
 	padding: 4px;
 	margin-bottom: 4px;
 	background-color: #F9F9F9;
+	cursor: pointer;
 	img {
 		width: 80px;
 		height: 80px;

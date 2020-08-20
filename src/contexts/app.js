@@ -36,7 +36,25 @@ export const AppProvider = ({ children }) => {
     setLoading(false);
   };
 
-  const loadProductsWithParams = (selectedCategory) => setCategory(selectedCategory);
+  const changeCategory = (selectedCategory) => setCategory(selectedCategory);
+
+  const addProduct = async ({ image, name, description, price, category, onSale, onSaleValue }) => {
+    const { data } = await apiReq.post('products/new', {
+      image,
+      name,
+      description,
+      price,
+      category,
+      onSale,
+      onSaleValue
+    });
+
+    if (data.error) return data;
+
+    setProducts([...products, data.product]);
+
+    return data;
+  };
 
   useEffect(() => {
     setProducts([]);
@@ -144,10 +162,11 @@ export const AppProvider = ({ children }) => {
       value={{
         products,
         loadProducts,
-        loadProductsWithParams,
+        changeCategory,
         productsPage,
         productsHasMoreItems,
         category,
+        addProduct,
 
         categories,
         loadCategories,

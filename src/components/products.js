@@ -16,7 +16,7 @@ const Products = ({ sort }) => {
     category,
     categories,
     loadProducts,
-    loadProductsWithParams,
+    changeCategory,
     loading,
     productsPage: page,
     productsHasMoreItems: hasMoreItems,
@@ -42,14 +42,14 @@ const Products = ({ sort }) => {
           <NavigationButton
             title="Todos"
             active={!category._id ? true : false}
-            action={() => loadProductsWithParams({})}
+            action={() => changeCategory({})}
           />
           {categories.map((item) => (
             <NavigationButton
               key={item._id}
               title={item.name}
               active={item._id === category._id ? true : false}
-              action={() => loadProductsWithParams(item)}
+              action={() => changeCategory(item)}
             />
           ))}
         </header>

@@ -1,4 +1,5 @@
 import React from 'react';
+import CurrencyFormat from 'react-currency-format';
 
 export const TextInput = ({ label, action, value, defaultValue, type, name, error, style }) => {
   return (
@@ -6,12 +7,13 @@ export const TextInput = ({ label, action, value, defaultValue, type, name, erro
       <div
         className={error && error.input === name ? 'textInput textInputErrored' : 'textInput'}
         style={style}>
-        <label>{label}</label>
+        <label htmlFor={name}>{label}</label>
         <input
           type={type ? type : 'text'}
           onChange={action}
           value={value}
           defaultValue={defaultValue}
+          id={name}
         />
       </div>
       {error && error.input === name && <p className="textInputAlert">{error.text}</p>}
@@ -23,29 +25,47 @@ export const TextArea = ({ label, action, name, defaultValue, error, style, text
     <div
       className={error && error.input === name ? 'textInput textInputErrored' : 'textInput'}
       style={style}>
-      <label htmlFor={label}>{label}</label>
-      <textarea onChange={action} style={textAreaStyle}>
+      <label htmlFor={name}>{label}</label>
+      <textarea onChange={action} style={textAreaStyle} id={name}>
         {defaultValue}
       </textarea>
     </div>
-    <p className="textInputAlert">{error}</p>
+    {error && error.input === name && <p className="textInputAlert">{error.text}</p>}
   </>
 );
-export const Select = ({ label, action, name, options, error, style }) => (
+export const SelectInput = ({ label, action, name, options, error, style, selected }) => (
   <>
     <div
       className={error && error.input === name ? 'textInput textInputErrored' : 'textInput'}
       style={style}>
-      <label htmlFor={label}>{label}</label>
-
-      <select>
-        {options.map((item) => (
-          <button className="options" key={item._id}>
+      <select onChange={action} onBlur={action}>
+        {options.map((item, index) => (
+          <option value={item._id} key={item._id} selected={selected === item._id ? true : false}>
             {item.name}
-          </button>
+          </option>
         ))}
       </select>
     </div>
-    <p className="textInputAlert">{error}</p>
+    {error && error.input === name && <p className="textInputAlert">{error.text}</p>}
+  </>
+);
+export const CheckBox = ({ label, title, action, name, checked, style }) => (
+  <div className="textInput" style={style}>
+    <label htmlFor={name}>{label}</label>
+    <div className="checkbox">
+      <input type="checkbox" onChange={action} id={name} />
+      <label htmlFor={name}>{title}</label>
+    </div>
+  </div>
+);
+export const CurrencyInput = ({ label, action, value, name, error, style }) => (
+  <>
+    <div
+      className={error && error.input === name ? 'textInput textInputErrored' : 'textInput'}
+      style={style}>
+      <label htmlFor={name}>{label}</label>
+      <CurrencyFormat value={value} prefix={'R$'} suffix={',00'} onValueChange={action} />
+    </div>
+    {error && error.input === name && <p className="textInputAlert">{error.text}</p>}
   </>
 );

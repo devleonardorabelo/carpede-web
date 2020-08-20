@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import AppContext from '../contexts/app';
 
 import { MdClose, MdDelete, MdPermMedia } from 'react-icons/md';
-import { TextInput, TextArea } from './input';
+import { TextInput, TextArea, SelectInput, CheckBox, CurrencyInput } from './input';
 import { Button } from './button';
 
 export const NewCategory = ({ isActived, closeAction, store }) => {
@@ -197,12 +197,11 @@ export const EditCategory = ({ isActived, closeAction, category, store }) => {
   ) : null;
 };
 export const NewProduct = ({ isActived, closeAction, store }) => {
-  const { addCategory } = useContext(AppContext);
+  const { addProduct, categories, changeCategory, category } = useContext(AppContext);
 
   const [image, setImage] = useState(null);
   const [imageAsFile, setImageAsFile] = useState(null);
   const [name, setName] = useState('');
-  const [category, setCategory] = useState({});
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [onSale, setOnSale] = useState(false);
@@ -211,12 +210,23 @@ export const NewProduct = ({ isActived, closeAction, store }) => {
   const [alert, setAlert] = useState();
   const [status, setStatus] = useState('');
 
-  async function handleNewCategory(e) {
+  async function handleNewProduct(e) {
     e.preventDefault();
 
     setStatus('loading');
 
-    const data = await addCategory(imageAsFile, store.store_id, name);
+    const product = {
+      image,
+      imageAsFile,
+      name,
+      description,
+      price,
+      category,
+      onSale,
+      onSaleValue
+    };
+
+    const data = await addProduct(product);
 
     if (data.error) {
       setStatus('');
@@ -265,7 +275,7 @@ export const NewProduct = ({ isActived, closeAction, store }) => {
         <form
           className="modalContent"
           style={{ display: 'flex', flexDirection: 'column' }}
-          onSubmit={handleNewCategory}>
+          onSubmit={handleNewProduct}>
           <input
             type="file"
             name=""
@@ -278,7 +288,7 @@ export const NewProduct = ({ isActived, closeAction, store }) => {
           />
 
           <TextInput
-            label="Nome da Categoria"
+            label="Nome do Produto"
             style={{ marginBottom: '8px' }}
             action={(e) => setName(e.target.value)}
             name="name"
@@ -291,43 +301,50 @@ export const NewProduct = ({ isActived, closeAction, store }) => {
             action={(e) => setDescription(e.target.value)}
             error={alert}
             textAreaStyle={{ minHeight: '100px' }}
+            style={{ marginBottom: '8px' }}
           />
 
           <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <TextInput
+            <CurrencyInput
               label="Preço"
-              style={{ marginBottom: '16px', width: '130px', marginRight: '8px' }}
-              action={(e) => setName(e.target.value)}
-              name="name"
+              style={{ marginBottom: '8px', width: '130px', marginRight: '8px' }}
+              action={(e) => setPrice(e.value)}
+              name="price"
               error={alert}
             />
-            <TextInput
+            <SelectInput
               label="Nome da Categoria"
-              style={{ marginBottom: '16px' }}
-              action={(e) => setName(e.target.value)}
-              name="name"
+              style={{ marginBottom: '8px', flexGrow: 1 }}
+              action={(e) => {
+                const categoryIndex = e.target.value;
+                const index = categories.findIndex((obj) => obj._id === categoryIndex);
+                changeCategory(categories[index]);
+              }}
+              options={categories}
+              name="category"
               error={alert}
+              selected={category._id}
             />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <TextInput
+            <CurrencyInput
               label="Oferta"
               style={{ marginBottom: '16px', width: '130px', marginRight: '8px' }}
-              action={(e) => setName(e.target.value)}
-              name="name"
+              action={(e) => setOnSaleValue(e.value)}
+              name="onsalevalue"
               error={alert}
             />
-            <TextInput
-              label="Nome da Categoria"
-              style={{ marginBottom: '16px' }}
-              action={(e) => setName(e.target.value)}
-              name="name"
-              error={alert}
+            <CheckBox
+              label="Promoção"
+              style={{ marginBottom: '16px', flexGrow: 1, minWidth: '150px' }}
+              action={() => setOnSale(!onSale)}
+              title={onSale ? 'Ativada' : 'Desativada'}
+              checked={true}
             />
           </div>
 
-          <Button title="Criar categoria" status={status} />
+          <Button title="Criar Produto" status={status} />
         </form>
       </div>
     </div>
