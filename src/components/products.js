@@ -7,7 +7,7 @@ import AppContext from '../contexts/app';
 import { MdAdd } from 'react-icons/md';
 import { CardItem } from './item';
 import { NavigationButton, CircularButton } from './button';
-import { NewProduct } from './modal';
+import { NewProduct, EditProduct } from './modal';
 
 const Products = ({ sort }) => {
   const { store } = useContext(AuthContext);
@@ -60,7 +60,7 @@ const Products = ({ sort }) => {
             <CardItem
               action={() => {
                 setSelectedProduct(item);
-                setShowModalAddProduct(!showModalAddProduct);
+                setShowModalEditProduct(!showModalEditProduct);
               }}
               image={item.image}
               title={item.name}
@@ -118,6 +118,12 @@ const Products = ({ sort }) => {
         store={store}
         isActived={showModalAddProduct}
         closeAction={() => setShowModalAddProduct(!showModalAddProduct)}
+      />
+      <EditProduct
+        selectedProduct={selectedProduct}
+        store={store}
+        isActived={showModalEditProduct}
+        closeAction={() => setShowModalEditProduct(!showModalEditProduct)}
       />
     </>
   );

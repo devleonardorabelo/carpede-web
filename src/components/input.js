@@ -11,7 +11,6 @@ export const TextInput = ({ label, action, value, defaultValue, type, name, erro
         <input
           type={type ? type : 'text'}
           onChange={action}
-          value={value}
           defaultValue={defaultValue}
           id={name}
         />
@@ -26,21 +25,23 @@ export const TextArea = ({ label, action, name, defaultValue, error, style, text
       className={error && error.input === name ? 'textInput textInputErrored' : 'textInput'}
       style={style}>
       <label htmlFor={name}>{label}</label>
-      <textarea onChange={action} style={textAreaStyle} id={name}>
-        {defaultValue}
-      </textarea>
+      <textarea
+        onChange={action}
+        style={textAreaStyle}
+        id={name}
+        defaultValue={defaultValue}></textarea>
     </div>
     {error && error.input === name && <p className="textInputAlert">{error.text}</p>}
   </>
 );
-export const SelectInput = ({ label, action, name, options, error, style, selected }) => (
+export const SelectInput = ({ action, name, options, error, style, selected }) => (
   <>
     <div
       className={error && error.input === name ? 'textInput textInputErrored' : 'textInput'}
       style={style}>
-      <select onChange={action} onBlur={action}>
-        {options.map((item, index) => (
-          <option value={item._id} key={item._id} selected={selected === item._id ? true : false}>
+      <select onChange={action} onBlur={action} defaultValue={selected}>
+        {options.map((item) => (
+          <option value={item._id} key={item._id}>
             {item.name}
           </option>
         ))}
@@ -53,7 +54,7 @@ export const CheckBox = ({ label, title, action, name, checked, style }) => (
   <div className="textInput" style={style}>
     <label htmlFor={name}>{label}</label>
     <div className="checkbox">
-      <input type="checkbox" onChange={action} id={name} />
+      <input type="checkbox" onChange={action} id={name} checked={checked} />
       <label htmlFor={name}>{title}</label>
     </div>
   </div>

@@ -38,9 +38,24 @@ export const AppProvider = ({ children }) => {
 
   const changeCategory = (selectedCategory) => setCategory(selectedCategory);
 
-  const addProduct = async ({ image, name, description, price, category, onSale, onSaleValue }) => {
+  const addProduct = async ({
+    imageAsFile,
+    name,
+    description,
+    price,
+    category,
+    onSale,
+    onSaleValue,
+    store
+  }) => {
+    let currentImage;
+
+    if (imageAsFile !== null) {
+      currentImage = await uploadImage(imageAsFile, store.store_id);
+    }
+
     const { data } = await apiReq.post('products/new', {
-      image,
+      image: currentImage,
       name,
       description,
       price,
@@ -82,6 +97,48 @@ export const AppProvider = ({ children }) => {
     }
 
     setLoading(false);
+  };
+
+  const editProduct = async ({
+    id,
+    image,
+    imageAsFile,
+    name,
+    description,
+    price,
+    category,
+    onSale,
+    onSaleValue,
+    store
+  }) => {
+    let currentImage;
+
+    if (imageAsFile !== null) {
+      currentImage = await uploadImage(imageAsFile, store.store_id);
+    } else {
+      currentImage = image;
+    }
+
+    const { data } = await apiReq.post('products/edit', {
+      id,
+      image: currentImage,
+      name,
+      description,
+      price: String(price),
+      category,
+      onSale,
+      onSaleValue: !onSaleValue ? String(price) : String(onSaleValue)
+    });
+
+    if (data.error) return data;
+
+    const index = products.findIndex((obj) => obj._id === id);
+
+    if (index !== -1) {
+      products[index] = data.product;
+      setProducts([...products]);
+    }
+    return data;
   };
 
   const addCategory = async (image, directory, name) => {
@@ -167,6 +224,7 @@ export const AppProvider = ({ children }) => {
         productsHasMoreItems,
         category,
         addProduct,
+        editProduct,
 
         categories,
         loadCategories,
