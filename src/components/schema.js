@@ -16,9 +16,9 @@ export default SchemaScript = ({ title, description, url, criacao, keywords }) =
       ],
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "",
-        "addressRegion": "",
-        "postalCode": "",
+        "streetAddress": "Rua Particular, 56",
+        "addressRegion": "Guarulhos, São Paulo",
+        "postalCode": "07075-171",
         "addressCountry": "BR"
       }
     };
@@ -39,9 +39,9 @@ export default SchemaScript = ({ title, description, url, criacao, keywords }) =
 			"description": `"${description}"`,
 			"address": {
 				"@type": "PostalAddress",
-				"streetAddress": "",
-				"addressLocality": "",
-				"addressRegion": "",
+				"streetAddress": "Rua Particular, 56",
+				"addressLocality": "Guarulhos, SP",
+				"addressRegion": "SP",
 				"addressCountry": "BR"
 			},
 		
@@ -67,15 +67,15 @@ export default SchemaScript = ({ title, description, url, criacao, keywords }) =
 		  "priceRange": "$$",
 		  "address": {
 		    "@type": "PostalAddress",
-		    "streetAddress": "",
-		    "addressLocality": "",
-		    "postalCode": "",
+		    "streetAddress": "Rua Particular, 56",
+		    "addressLocality": "Guarulhos",
+		    "postalCode": "07075-171",
 		    "addressCountry": "BR"
 		  },
 		  "geo": {
 		    "@type": "GeoCoordinates",
-		    "latitude": "",
-		    "longitude": ""
+		    "latitude": "-23.4058521",
+		    "longitude": "-46.5369986"
 		  },
 		  "sameAs": [
         "https://www.instagram.com/carpededelivery",
@@ -240,6 +240,9 @@ export default SchemaScript = ({ title, description, url, criacao, keywords }) =
       </Helmet>
       <Helmet>
         <script className='structured-data-list' type="application/ld+json">{product}</script>
+      </Helmet>
+			<Helmet>
+        <script className='structured-data-list' type="application/ld+json">{recipe}</script>
       </Helmet>
       <Helmet>
         <script className='structured-data-list' type="application/ld+json">{techArticle}</script>
