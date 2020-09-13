@@ -8,7 +8,7 @@
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "build": "next build",
     "run": "next start",
-    "start": "next start"
+    "start": "next build && next start"
   },
   "dependencies": {
     "@buttercup/react-formatted-input": "^1.3.0",
