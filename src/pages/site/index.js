@@ -27,8 +27,14 @@ const Home = () => {
         <title>Seu App exclusivo de Delivery | Carpede</title>
         <meta name="title" content="Sua empresa com um aplicativo exclusivo de Delivery" />
         <meta name="author" content="http://wule.com.br/" />
-        <meta name="description" content="Seu aplicativo exclusivo de Delivery, sem comissões por pedido, sem concorrência e a melhor experiência em entregas com atualizações em tempo real." />
-        <meta name="keywords" content="aplicativo delivery, app delivery, aplicativo personalizado delivery, aplicativo de entregas, aplicativo, app, negócio, entregas, aplicativo para meu negócio, aplicativo para negócios" />
+        <meta
+          name="description"
+          content="Seu aplicativo exclusivo de Delivery, sem comissões por pedido, sem concorrência e a melhor experiência em entregas com atualizações em tempo real."
+        />
+        <meta
+          name="keywords"
+          content="aplicativo delivery, app delivery, aplicativo personalizado delivery, aplicativo de entregas, aplicativo, app, negócio, entregas, aplicativo para meu negócio, aplicativo para negócios"
+        />
         <meta name="robots" content="all" />
 
         <meta name="geo.region" content="BR-SP" />
@@ -36,7 +42,10 @@ const Home = () => {
         <meta name="ICBM" content="geoLatitude, geoLongitude" />
 
         <meta name="language" content="pt-br" />
-        <meta name="copyright" content="Carpede - Aplicativos exclusivos para o delivery de seu negócio." />
+        <meta
+          name="copyright"
+          content="Carpede - Aplicativos exclusivos para o delivery de seu negócio."
+        />
         <meta name="distribution" content="global" />
         <meta name="audience" content="all" />
         <meta name="url" content="https://www.carpede.com/" />
@@ -60,7 +69,10 @@ const Home = () => {
         <meta name="twitter:url" content="https://www.carpede.com/" />
         <meta name="twitter:site" content="https://www.carpede.com/" />
         <meta name="twitter:title" content="Seu App exclusivo de Delivery | Carpede" />
-        <meta name="twitter:description" content="Seu aplicativo exclusivo de Delivery, sem comissões por pedido, sem concorrência e a melhor experiência em entregas com atualizações em tempo real." />
+        <meta
+          name="twitter:description"
+          content="Seu aplicativo exclusivo de Delivery, sem comissões por pedido, sem concorrência e a melhor experiência em entregas com atualizações em tempo real."
+        />
         <meta name="twitter:image" content="https://www.carpede.com/images/card.jpg" />
 
         <meta property="og:title" content="Seu App exclusivo de Delivery | Carpede" />
@@ -74,7 +86,10 @@ const Home = () => {
         <meta property="og:image:type" content="image/jpg" />
         <meta property="og:image:width" content="250" />
         <meta property="og:image:height" content="250" />
-        <meta property="og:description" content="Seu aplicativo exclusivo de Delivery, sem comissões por pedido, sem concorrência e a melhor experiência em entregas com atualizações em tempo real." />
+        <meta
+          property="og:description"
+          content="Seu aplicativo exclusivo de Delivery, sem comissões por pedido, sem concorrência e a melhor experiência em entregas com atualizações em tempo real."
+        />
 
         <link rel="icon" href="source/images/favicon.png" type="image/x-icon" />
         <link rel="shortcut icon" type="image/x-icon" href="source/images/favicon.png" />
@@ -122,7 +137,11 @@ const Home = () => {
 
       <section className="container benefits">
         <div className="mobileImage">
-          <img alt="Aplicativo Delivery Exclusivo" title="Aplicativo Delivery Exclusivo" src="/images/device-mobile.png" />
+          <img
+            alt="Aplicativo Delivery Exclusivo"
+            title="Aplicativo Delivery Exclusivo"
+            src="/images/device-mobile.png"
+          />
         </div>
         <article className="benefitsArticle">
           <h2>QUAIS VANTAGENS TEREI AO CONTRATAR ?</h2>

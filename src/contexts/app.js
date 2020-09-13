@@ -141,6 +141,15 @@ export const AppProvider = ({ children }) => {
     return data;
   };
 
+  const deleteProduct = async (id) => {
+    const { data } = await apiReq.post('products/delete', { id });
+    if (data) {
+      const index = products.findIndex((obj) => obj._id === id);
+      products.splice(index, 1);
+      setProducts([...products]);
+    }
+  };
+
   const addCategory = async (image, directory, name) => {
     let newImage;
 
@@ -225,6 +234,7 @@ export const AppProvider = ({ children }) => {
         category,
         addProduct,
         editProduct,
+        deleteProduct,
 
         categories,
         loadCategories,

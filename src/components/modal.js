@@ -197,7 +197,9 @@ export const EditCategory = ({ isActived, closeAction, category, store }) => {
   ) : null;
 };
 export const EditProduct = ({ selectedProduct, isActived, closeAction, store }) => {
-  const { editProduct, categories, changeCategory, category } = useContext(AppContext);
+  const { editProduct, deleteProduct, categories, changeCategory, category } = useContext(
+    AppContext
+  );
 
   const [image, setImage] = useState(null);
   const [imageAsFile, setImageAsFile] = useState(null);
@@ -265,6 +267,14 @@ export const EditProduct = ({ selectedProduct, isActived, closeAction, store }) 
           }}
           className="modalButton close">
           <MdClose />
+        </button>
+        <button
+          onClick={() => {
+            closeAction();
+            deleteProduct(selectedProduct._id);
+          }}
+          className="modalButton delete">
+          <MdDelete />
         </button>
 
         <div
