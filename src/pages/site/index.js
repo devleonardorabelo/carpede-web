@@ -3,6 +3,7 @@ import Head from 'next/head';
 import axios from 'axios';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
+import SchemaScript from '../../components/schema';
 
 const Home = () => {
   const [sent, setSent] = useState(false);
@@ -121,7 +122,7 @@ const Home = () => {
 
       <section className="container benefits">
         <div className="mobileImage">
-          <img alt="" src="/images/device-mobile.png" />
+          <img alt="Aplicativo Delivery Exclusivo" title="Aplicativo Delivery Exclusivo" src="/images/device-mobile.png" />
         </div>
         <article className="benefitsArticle">
           <h2>QUAIS VANTAGENS TEREI AO CONTRATAR ?</h2>
@@ -129,7 +130,7 @@ const Home = () => {
           <p className="item">Sem tempo mínimo de adesão</p>
           <p className="item">Sem burocracia ou multa por cancelamento</p>
           <p className="item">Suporte personalizado</p>
-          <img alt="" className="pricing" src="/images/pricing.svg" />
+          <img alt="Preço" title="Preço" className="pricing" src="/images/pricing.svg" />
         </article>
       </section>
 
@@ -146,6 +147,13 @@ const Home = () => {
       </div>
 
       <Footer />
+      <SchemaScript
+        title="Seu App exclusivo de Delivery | Carpede"
+        description="Seu aplicativo exclusivo de Delivery, sem comissões por pedido, sem concorrência e a melhor experiência em entregas com atualizações em tempo real."
+        url="https://www.carpede.com/"
+        criacao="2020/08/06"
+        keywords="aplicativo delivery, app delivery, aplicativo personalizado delivery, aplicativo de entregas, aplicativo, app, negócio, entregas, aplicativo para meu negócio, aplicativo para negócios"
+      />
     </div>
   );
 };
