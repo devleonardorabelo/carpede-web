@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 
 interface Props {
   label: string;
-  action: () => void;
+  action: (e: any) => void;
   name: string;
   error?: {
     input: string;
