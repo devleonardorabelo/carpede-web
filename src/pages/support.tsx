@@ -33,12 +33,18 @@ const Support: React.FC = () => {
               mensagem pra gente e em pouco tempo a gente vai te atender!
             </p>
             <div className="supportForm">
-              <TextInput label="nome" action={(e) => setName(e.target.value)} />
               <TextInput
+                name="name"
+                label="nome"
+                action={(e) => setName(e.target.value)}
+              />
+              <TextInput
+                name="email"
                 label="email"
                 action={(e) => setEmail(e.target.value)}
               />
               <TextArea
+                name="description"
                 label="descreva seu problema ou dúvida"
                 action={(e) => setText(e.target.value)}
               />
