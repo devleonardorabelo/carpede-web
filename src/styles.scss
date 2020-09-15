@@ -74,24 +74,6 @@ button.button {
 	cursor: pointer;
 	svg { margin-right: 12px; }
 }
-.filterButton {
-	font-size: 28px;
-	border: 0;
-}
-.circularButton {
-	height: 64px;
-	width: 64px;
-	background: linear-gradient(252.26deg, #4F8FDF 0%, #45D9A6 100%);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 100%;
-	border: 0;
-	svg {
-		font-size: 16pt;
-		color: #FFFFFF;
-	}
-}
 div.textInput {
 	display: flex;
 	flex-direction: column;
@@ -196,44 +178,16 @@ header.site .container {
 	align-items: center;
 	height: 76px;
 }
-header.site .container a.logo img{max-width: 120px;}
+header.site .container span.logo img{max-width: 120px;}
 header.site .container nav {text-align: right;}
-header.site .container nav a {
+header.site .container nav span {
+  cursor: pointer;
 	text-transform: uppercase;
 	padding: 20px 0px 20px 32px;
 	font-weight: 400;
 	color: #333333;
 	font-size: 12pt;
 }
-header.app {
-	display: flex;
-	justify-content: space-between;
-	padding: 24px 0 12px;
-	margin-bottom: 12px;
-	button {
-		border: 0;
-		background-color: transparent;
-		font-size: 28px;
-		cursor: pointer;
-	}
-}
-header.headerSelector {
-	margin-bottom: 16px;
-	button {
-		margin-right: 8px;
-		margin-bottom: 8px !important;
-		height: 32px;
-		padding: 0 16px;
-		border: 0px;
-		border-radius: 8px;
-		font-weight: 600;
-		font-size: 12pt;
-		min-width: 100px;
-		cursor: pointer;
-		text-transform: capitalize;
-		margin-bottom: 12px;
-	}
-} 
 section.container .content {padding-top: 80px;}
 section.container .content .term {margin-bottom: 32px;}
 section.container .content .term strong {margin-right: 8px;}
@@ -379,24 +333,23 @@ section.footer {
 		div.logo {
 			grid-area: logo;
 			margin: 12px 0;
-			padding-bottom: 24px;
-			a.logo {
-				display: block;
+			padding: 12px 0;
 				img {width: 120px;}
-			}
+
 		}
 		nav.navFooter {
 			grid-area: navFooter;
 			display: flex;
 			flex-direction: column;
 			margin-bottom: 24px;
-			a {
+			span {
 				text-transform: uppercase;
 				padding: 8px 0px;
 				font-weight: 400;
 				color: #999;
 				font-size: 10pt;
-				max-width: 100px;
+        max-width: 100px;
+        cursor: pointer;
 			}
 		}
 		div.media {
@@ -437,179 +390,6 @@ section.footer {
 				margin-bottom: 0;
 			}
 		}
-	}	
-}
-
-.formSign {
-	min-width: 350px;
-	div.textInput {	margin-bottom: 12px;}
-	button { width: 100%; }
-	div.signup div.rowA1 {
-		display: grid;
-		grid-template-areas: "div1 div2";
-		grid-template-columns: 2fr 1fr;
-		gap: 12px;
-		div:nth-child(1) {grid-area: div1;}
-		div:nth-child(2) {grid-area: div2;}
-	}
-	div.signup div.row3 {
-		display: grid;
-		grid-template-areas: "div1 div2 div3";
-		grid-template-columns: minmax(120px, 1fr) minmax(120px, 1fr) minmax(200px, 1fr);
-		gap: 12px;
-		div:nth-child(1) {grid-area: div1;}
-		div:nth-child(2) {grid-area: div2;}
-		div:nth-child(3) {grid-area: div3;}
-	}
-}
-
-section.panel {
-	display: grid;
-	grid-template-areas: "nav content";
-	grid-template-columns: minmax(200px, 330px) 1fr;
-	gap: 24px;
-	nav {grid-area: nav; }
-	div.content { grid-area: content; }
-}
-
-div.navItem {
-	display: flex;
-	border-bottom: 1px solid #DFDFDF;
-	padding: 16px 0px;
-	justify-content: space-between;
-	align-items: center;
-	cursor: pointer;
-	.icon {
-		align-items: center;
-		justify-content: center;
-		margin-right: 16px;
-		margin-bottom: -4px;
-	}
-	div.navItemContent {
-		p.title {
-			margin: 0px;
-			font-weight: 600;
-			font-size: 12pt;
-			line-height: 14pt;
-		}
-		p.subtitle{
-			margin: 0px;
-			font-size: 11pt;
-		}
-	}
-	div.arrow {
-		margin-bottom: -8px;
-		font-size: 24pt;
-		align-self: center;
-	}
-}
-
-div.storeAvatar {
-	display: flex;
-	flex-direction: row;
-	padding: 16px 0;
-	img { max-height: 100%; max-width: 100%; margin-right: 16px; }
-	.storeAvatarImage {
-		background-color: #E2E2E2;
-		width: 80px;
-		height: 80px;
-		border-radius: 100%;
-	}
-	.storeAvatarContent {
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-	}
-	h4 { text-transform: capitalize; }
-}
-
-.cardItem {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	border-radius: 8px;
-	min-height: 78px;
-	padding: 4px;
-	margin-bottom: 4px;
-	background-color: #F9F9F9;
-	cursor: pointer;
-	img {
-		width: 80px;
-		height: 80px;
-		border-radius: 8px;
-	}
-	div.content {
-		display: flex;
-		flex-direction: column;
-		padding: 16px;
-		flex-grow: 1;
-	}
-}
-
-@media (max-width: 550px) {
-	div.signup div.rowA1 {
-		display: grid;
-		grid-template-areas: "div1" "div2" !important;
-		grid-template-columns: 1fr !important;
-		gap: 0px !important;
-	}
-	div.signup div.row3 {
-		display: grid;
-		grid-template-areas: "div1" "div2" "div3" !important;
-		grid-template-columns: 1fr !important;
-		gap: 0px !important;
-	}
-}
-
-div.modalBackground {
-	background-color: rgba(0, 0, 0, 0.7);
-	position: fixed;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	z-index: 999;
-	padding: 8px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	
-	div.modal {
-		position: relative;
-		background-color: #FFFFFF;
-		max-width: 800px;
-		min-width: 300px;
-		max-height: 100vh;
-		overflow-y: auto;
-		border-radius: 8px;
-		padding: 16px;
-		box-shadow: 0px 4px 8px #333333;
-		button.modalButton {
-			position: absolute;
-			top: 24px;
-			background-color: rgba(255, 255, 255, 0.7);
-			padding: 8px;
-			border: 0;
-			border-radius: 100%;
-			font-size: 16pt;
-			line-height: 16pt;
-			height: 38px;
-			width: 38px;
-			cursor: pointer;
-			z-index: 9999;
-			&.close { right: 24px; }
-			&.delete { left: 24px; }
-		}
-		div.previewImage {
-			width: 100%;
-			min-height: 200px;
-			border-radius: 8px;
-			background-color: #E2E2E2;
-		}
-		.modalContent {
-			padding: 16px 0;
-			background-size: 100% auto;
-		}
 	}
 }
 
@@ -642,7 +422,7 @@ div.modalBackground {
 		}
 		header .container nav.active {display: block;animation: slide 0.7s forwards;box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.05);}
 		header .container nav a {display: block; color: #333333; padding-bottom: 16px;}
-	
+
 }
 
 @media (min-width: 800px) {
@@ -680,13 +460,6 @@ div.modalBackground {
 			grid-template-areas: "logo" "navFooter" "media" "rights" !important;
 			grid-template-columns: 1fr;
 		}
-		div.signup div.row3 {
-			display: grid;
-			grid-template-areas: "div1" "div2" "div3" !important;
-			grid-template-columns: 1fr !important;
-			gap: 0px !important;
-		}
-
 }
 
 @media (min-width: 1140px) {
@@ -695,9 +468,10 @@ div.modalBackground {
 		margin-bottom: 30px;
 		line-height: 52pt;
 		letter-spacing: -0.02em;
-	}	
+	}
 }
 @keyframes slide {
     0% {max-height: 0%;}
     100% {max-height: 100vh;}
 }
+

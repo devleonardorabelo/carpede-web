@@ -1,9 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-export default function Header() {
+const Header: React.FC = () => {
   const [isActived, setIsActived] = useState(false);
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -22,39 +20,33 @@ export default function Header() {
 
   return (
     <header className={scrollPosition > 0 ? 'site scrolled' : 'site'}>
-      <button className="toggleNav" onClick={() => setIsActived(!isActived)}>
+      <button
+        type="button"
+        className="toggleNav"
+        onClick={() => setIsActived(!isActived)}
+      >
         &#9776;
       </button>
       <div className="container">
-        <Link href="/site/">
-          <a className="logo">
+        <Link href="/">
+          <span className="logo">
             <img src="/images/logo-carpede.png" alt="Carpede" title="Carpede" />
-          </a>
+          </span>
         </Link>
         <nav className={isActived ? 'active' : 'null'}>
-          <Link href="/site/">
-            <a>INÍCIO</a>
+          <Link href="/">
+            <span>INÍCIO</span>
           </Link>
-          <Link href="/site/support">
-            <a>SUPORTE</a>
+          <Link href="/support">
+            <span>SUPORTE</span>
           </Link>
-          <Link href="/site/terms">
-            <a>TERMOS</a>
-          </Link>
-          <Link href="/account/signin">
-            <a>ENTRAR</a>
+          <Link href="/terms">
+            <span>TERMOS</span>
           </Link>
         </nav>
       </div>
     </header>
   );
-}
+};
 
-export const HeaderApp = ({ iconLeft, actionLeft, children }) => (
-  <header className="app">
-    <button className="icon" onClick={actionLeft}>
-      {iconLeft}
-    </button>
-    {children}
-  </header>
-);
+export default Header;
